@@ -1,19 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://c5xw5s000x004"]
+[gd_scene load_steps=2 format=3 uid="uid://c5xw5s000x004"]
 
-[ext_resource type="Texture2D" uid="uid://dnyxab1ru224j" path="res://icon.svg" id="1_hfy78"]
-[ext_resource type="Script" path="res://CharacterController.gd" id="1_ngcbo"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_offd8"]
-radius = 63.1981
+[ext_resource type="PackedScene" uid="uid://d12e7lbi56nd6" path="res://Character.tscn" id="1_qqhhr"]
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Character" type="CharacterBody2D" parent="."]
-script = ExtResource("1_ngcbo")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Character"]
-shape = SubResource("CircleShape2D_offd8")
-
-[node name="Sprite2D" type="Sprite2D" parent="Character"]
-texture = ExtResource("1_hfy78")
-region_rect = Rect2(0, 0, 129, 125.5)
+[node name="Character" parent="." instance=ExtResource("1_qqhhr")]
