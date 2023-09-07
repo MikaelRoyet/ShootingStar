@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://d1xmr5yilswab"]
+
+[ext_resource type="Script" path="res://cubi.gd" id="1_wyhnk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_itnul"]
+size = Vector2(145, 145)
+
+[sub_resource type="Gradient" id="Gradient_mfejl"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5hy1j"]
+gradient = SubResource("Gradient_mfejl")
+fill_from = Vector2(1, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w127n"]
+size = Vector2(156, 156)
+
+[node name="RigidBody2D" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 3
+gravity_scale = 0.0
+continuous_cd = 1
+max_contacts_reported = 10
+contact_monitor = true
+freeze = true
+script = ExtResource("1_wyhnk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_itnul")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2.29688, 2.3125)
+texture = SubResource("GradientTexture2D_5hy1j")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_w127n")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
