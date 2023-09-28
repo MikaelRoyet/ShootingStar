@@ -44,13 +44,11 @@ func _ready():
 	durationWallHitTimer = $DurationWallHit
 	spriteCharacter = $Sprite2D
 	spriteCharacter.modulate = Color(255,255,255,255)
-	makeTrail()
+	#makeTrail()
 
 
 func _process(delta):
 	print(position)
-	if(Input.is_action_just_pressed("swap")):
-		swap()
 		
 	if(Input.is_action_just_pressed("shield")):
 		shield()
