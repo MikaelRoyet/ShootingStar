@@ -1,5 +1,7 @@
-extends StaticBody2D
+extends Node
 
+
+signal my_signal
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -10,12 +12,9 @@ func _ready():
 func _process(delta):
 	pass
 
-func hitWall(aaa):
-	pass
 
-func _on_area_2d_body_entered(body):
-	print("aaaaa")
-	body.hitWall("cubiii")
-
-func hit():
+func sendBoostToUI(boost):
+	print("sendboostui")
+	emit_signal("my_signal", boost)
+	#connect("my_signal", self, "signal_handler")
 	pass

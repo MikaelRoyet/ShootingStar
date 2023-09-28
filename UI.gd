@@ -1,21 +1,19 @@
-extends StaticBody2D
+extends Panel
 
+
+var valueBoost
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	
+	valueBoost = $HBoxContainer/ValueBoost
+	var emmiter = GameManager
+	emmiter.my_signal.connect(majBoost)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
-func hitWall(aaa):
-	pass
-
-func _on_area_2d_body_entered(body):
-	print("aaaaa")
-	body.hitWall("cubiii")
-
-func hit():
-	pass
+func majBoost(boost):
+	valueBoost.text = str(boost)

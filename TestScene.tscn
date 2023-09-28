@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c5xw5s000x004"]
+[gd_scene load_steps=5 format=3 uid="uid://c5xw5s000x004"]
 
 [ext_resource type="PackedScene" uid="uid://d12e7lbi56nd6" path="res://Character.tscn" id="1_qqhhr"]
 [ext_resource type="PackedScene" uid="uid://bebkkhslspqn8" path="res://Wall_1.tscn" id="2_ynx38"]
 [ext_resource type="PackedScene" uid="uid://corq0qf430ixn" path="res://Bullet.tscn" id="3_23g4u"]
+[ext_resource type="Script" path="res://UI.gd" id="4_g88g2"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -13,4 +14,41 @@
 [node name="Area2D" parent="." instance=ExtResource("3_23g4u")]
 position = Vector2(267, 68)
 
+[node name="Area2D2" parent="." instance=ExtResource("3_23g4u")]
+position = Vector2(369, -159)
+
+[node name="Area2D3" parent="." instance=ExtResource("3_23g4u")]
+position = Vector2(23, -304)
+
+[node name="Area2D4" parent="." instance=ExtResource("3_23g4u")]
+position = Vector2(763, -285)
+
+[node name="Area2D5" parent="." instance=ExtResource("3_23g4u")]
+position = Vector2(902, 183)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Panel" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_g88g2")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LabelBoost" type="Label" parent="CanvasLayer/UI/HBoxContainer"]
+layout_mode = 2
+text = "Boost : "
+
+[node name="ValueBoost" type="Label" parent="CanvasLayer/UI/HBoxContainer"]
+layout_mode = 2
+text = "0
+"
+
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]
+[connection signal="body_entered" from="Area2D3" to="Area2D3" method="_on_body_entered"]
+[connection signal="body_entered" from="Area2D4" to="Area2D4" method="_on_body_entered"]
+[connection signal="body_entered" from="Area2D5" to="Area2D5" method="_on_body_entered"]
