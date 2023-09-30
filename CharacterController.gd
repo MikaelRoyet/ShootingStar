@@ -6,6 +6,8 @@ var direction
 const CONST_DASH_DISTANCE = 300
 var CrossHair
 
+var collision
+
 #Sprite
 var spriteCharacter
 
@@ -80,7 +82,12 @@ func _physics_process(delta):
 		velocity = (velocity + oldDirection * 75).normalized() * speed
 	
 	CrossHair.global_position = (oldDirection * CONST_DASH_DISTANCE) + position
-	move_and_slide()
+	# Using move_and_collide.
+	collision = move_and_collide(velocity * delta)
+	if collision:
+		hitWall("collsion detections")
+		print("I collided with ", collision.get_collider().name)
+
 
 
 func swap():

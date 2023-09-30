@@ -30,7 +30,7 @@ orbit_velocity_max = 0.0
 scale_curve = SubResource("CurveTexture_idjcb")
 color_ramp = SubResource("GradientTexture1D_ivmyr")
 
-[node name="Character" type="CharacterBody2D"]
+[node name="Character" type="CharacterBody2D" groups=["Player"]]
 collision_mask = 3
 script = ExtResource("1_p2gkp")
 

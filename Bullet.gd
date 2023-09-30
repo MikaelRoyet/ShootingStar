@@ -16,4 +16,5 @@ func _physics_process(delta):
 		position =  position + direction 
 
 func _on_body_entered(body):
-	body.hit()
+	if(body.is_in_group('Player')):
+		body.hit()
