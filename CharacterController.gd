@@ -83,6 +83,9 @@ func _physics_process(delta):
 	
 	CrossHair.global_position = (oldDirection * CONST_DASH_DISTANCE) + position
 	# Using move_and_collide.
+	
+
+	
 	collision = move_and_collide(velocity * delta)
 	if collision:
 		hitWall("collsion detections")
@@ -99,7 +102,7 @@ func hitWall(info):
 	set_speed(CONST_SPEED_SLOW)
 	durationWallHitTimer.start(CONST_DURATION_WALLHIT)
 	#rebond contre le mur
-	velocity = (-oldDirection ).normalized() * speed
+	velocity = (-oldDirection).normalized() * speed
 	
 	#Acceleration juste apres le wallhit cancel le slow
 
