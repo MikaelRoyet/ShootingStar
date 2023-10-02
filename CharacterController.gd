@@ -12,14 +12,14 @@ var collision
 var spriteCharacter
 
 #Trail
-var current_trail = Trail
+var current_trail
 
 #Speed
 var speed = CONST_SPEED
 const CONST_SPEED = 700.0
-const CONST_SPEED_MULTI = 1.5
+const CONST_SPEED_MULTI = 1.75
 const CONST_SPEED_NORMAL = 1
-const CONST_SPEED_SLOW = 0.5
+const CONST_SPEED_SLOW = 0.8
 
 #WallHit
 const CONST_DURATION_WALLHIT = 1
@@ -45,13 +45,17 @@ func _ready():
 	shieldDurationTimer = $DurationShield
 	durationWallHitTimer = $DurationWallHit
 	spriteCharacter = $Sprite2D
+	current_trail = $GPUParticles2D
 	spriteCharacter.modulate = Color(255,255,255,255)
-	#makeTrail()
 
 
 func _process(delta):
 	print(position)
-		
+	
+	#color trail / vitesse
+	#current_trail.set("color",Color(0,0,0,0))
+	
+	
 	if(Input.is_action_just_pressed("shield")):
 		shield()
 		
@@ -88,7 +92,7 @@ func _physics_process(delta):
 	
 	collision = move_and_collide(velocity * delta)
 	if collision:
-		hitWall("collsion detections")
+		hitWall(collision)
 		print("I collided with ", collision.get_collider().name)
 
 
@@ -97,12 +101,12 @@ func swap():
 	print("swwaappppappapapapapapaapapa")
 	position = (oldDirection * CONST_DASH_DISTANCE) + position
 	
-func hitWall(info):
-	print(info)
+func hitWall(collision):
+	velocity = velocity.bounce(collision.get_normal())
 	set_speed(CONST_SPEED_SLOW)
 	durationWallHitTimer.start(CONST_DURATION_WALLHIT)
 	#rebond contre le mur
-	velocity = (-oldDirection).normalized() * speed
+	
 	
 	#Acceleration juste apres le wallhit cancel le slow
 
@@ -148,6 +152,3 @@ func _on_duration_shield_timeout():
 	set_vulnerable(true)
 	spriteCharacter.modulate = Color(255,255,255,255)
 
-func makeTrail() -> void:
-	current_trail = Trail.create()
-	add_child(current_trail)
