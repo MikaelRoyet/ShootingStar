@@ -19,7 +19,7 @@ var speed = CONST_SPEED
 const CONST_SPEED = 700.0
 const CONST_SPEED_MULTI = 1.75
 const CONST_SPEED_NORMAL = 1
-const CONST_SPEED_SLOW = 0.8
+const CONST_SPEED_SLOW = 0.7
 
 #WallHit
 const CONST_DURATION_WALLHIT = 1
@@ -75,6 +75,7 @@ func _process(delta):
 
 func _physics_process(delta):
 
+	GameManager.sendSpeedToUI(speed)
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	direction = Input.get_vector("left", "right", "up", "down").normalized()

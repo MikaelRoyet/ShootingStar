@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="ShootingStar"
-run/main_scene="res://TestScene.tscn"
+run/main_scene="res://Scenes/TestScene.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://Sprites/icon.svg"
 
 [autoload]
 
-GameManager="*res://GameManager.gd"
+GameManager="*res://Scripts/GameManager.gd"
 
 [editor_plugins]
 

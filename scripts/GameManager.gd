@@ -1,7 +1,8 @@
 extends Node
 
 
-signal my_signal
+signal my_signal_boost
+signal my_signal_speed
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,6 +16,10 @@ func _process(delta):
 
 func sendBoostToUI(boost):
 	print("sendboostui")
-	emit_signal("my_signal", boost)
-	#connect("my_signal", self, "signal_handler")
+	emit_signal("my_signal_boost", boost)
+	pass
+
+func sendSpeedToUI(speed):
+	print("sendspeedtoui")
+	emit_signal("my_signal_speed", speed)
 	pass
