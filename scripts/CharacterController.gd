@@ -54,9 +54,6 @@ func _ready():
 
 func _process(delta):
 	
-	#color trail / vitesse
-	#current_trail.set("color",Color(0,0,0,0))
-	
 	
 	if(Input.is_action_just_pressed("shield")):
 		shield()
@@ -65,18 +62,16 @@ func _process(delta):
 		if boost > 0 && !isBullletHit:
 			boost -= 1	
 			GameManager.sendBoostToUI(boost)
-			print("arch angel isfallingdown")
 			set_speed(CONST_SPEED_MULTI)
 		else:
 			if(!isWallHit && !isBullletHit):
-				print("one more flag in the ground")
 				set_speed(CONST_SPEED_NORMAL)	
 
-			
-			
 	if(Input.is_action_just_released("acceleration")):
 		if(!isWallHit && !isBullletHit):
-			set_speed(CONST_SPEED_NORMAL)	
+			set_speed(CONST_SPEED_NORMAL)
+		else:
+			set_speed(CONST_SPEED_SLOW)
 
 func _physics_process(delta):
 
