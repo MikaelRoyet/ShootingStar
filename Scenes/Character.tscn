@@ -8,11 +8,12 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_offd8"]
 radius = 15.0
 
-[sub_resource type="Gradient" id="Gradient_t1slj"]
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+[sub_resource type="Gradient" id="Gradient_wukty"]
+offsets = PackedFloat32Array(0, 0.116618)
+colors = PackedColorArray(0.835294, 0.796078, 1, 1, 1, 1, 1, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_ivmyr"]
-gradient = SubResource("Gradient_t1slj")
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_fq2ho"]
+gradient = SubResource("Gradient_wukty")
 
 [sub_resource type="Curve" id="Curve_42hbr"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.5, 0), 0.0, 0.0, 0, 0]
@@ -34,7 +35,7 @@ scale_min = 0.5
 scale_max = 0.5
 scale_curve = SubResource("CurveTexture_idjcb")
 color = Color(0.835294, 0.796078, 1, 1)
-color_ramp = SubResource("GradientTexture1D_ivmyr")
+color_ramp = SubResource("GradientTexture1D_fq2ho")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xeg70"]
 particle_flag_disable_z = true

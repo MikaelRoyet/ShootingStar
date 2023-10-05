@@ -24,6 +24,7 @@ const CONST_SPEED_SLOW = 0.7
 #WallHit
 const CONST_DURATION_WALLHIT = 1
 var durationWallHitTimer : Timer
+var isWallHit = false
 
 #Boost
 var CONST_BOOST_MAX = 200
@@ -45,7 +46,6 @@ func _ready():
 	shieldDurationTimer = $DurationShield
 	durationWallHitTimer = $DurationWallHit
 	spriteCharacter = $Sprite2D
-	current_trail = $GPUParticles2D
 	spriteCharacter.modulate = Color(255,255,255,255)
 
 
@@ -63,15 +63,16 @@ func _process(delta):
 		if boost > 0:
 			boost -= 1	
 			GameManager.sendBoostToUI(boost)
-		else:
-			set_speed(CONST_SPEED_NORMAL)	
-		
-	if(Input.is_action_just_pressed("acceleration")):
-		if(boost > 0):
 			set_speed(CONST_SPEED_MULTI)
+		else:
+			if(!isWallHit):
+				set_speed(CONST_SPEED_NORMAL)	
+
+			
 			
 	if(Input.is_action_just_released("acceleration")):
-		set_speed(CONST_SPEED_NORMAL)	
+		if(!isWallHit):
+			set_speed(CONST_SPEED_NORMAL)	
 
 func _physics_process(delta):
 
@@ -106,6 +107,7 @@ func hitWall(collision):
 	velocity = velocity.bounce(collision.get_normal())
 	set_speed(CONST_SPEED_SLOW)
 	durationWallHitTimer.start(CONST_DURATION_WALLHIT)
+	isWallHit = true
 	#rebond contre le mur
 	
 	
@@ -147,6 +149,7 @@ func _on_shield_cd_timeout():
 
 func _on_duration_wall_hit_timeout():
 	set_speed(CONST_SPEED_NORMAL)
+	isWallHit = false
 
 
 func _on_duration_shield_timeout():
