@@ -1,15 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://corq0qf430ixn"]
+[gd_scene load_steps=4 format=3 uid="uid://corq0qf430ixn"]
 
 [ext_resource type="Script" path="res://Scripts/Bullet.gd" id="1_fc6ep"]
+[ext_resource type="Texture2D" uid="uid://dnd73u4db6p1t" path="res://Sprites/Trail.png" id="2_jjphd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hbbfb"]
 
-[node name="Area2D" type="Area2D"]
+[node name="Bullet" type="Area2D"]
 script = ExtResource("1_fc6ep")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_hbbfb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_jjphd")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

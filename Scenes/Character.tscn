@@ -10,7 +10,7 @@ radius = 15.0
 
 [sub_resource type="Gradient" id="Gradient_wukty"]
 offsets = PackedFloat32Array(0, 0.116618)
-colors = PackedColorArray(0.835294, 0.796078, 1, 1, 1, 1, 1, 1)
+colors = PackedColorArray(0.835294, 0.796078, 1, 0.588235, 1, 1, 1, 0.392157)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_fq2ho"]
 gradient = SubResource("Gradient_wukty")
@@ -68,12 +68,17 @@ position = Vector2(-3.8147e-06, 0.999996)
 scale = Vector2(0.0859375, 0.0859375)
 
 [node name="DurationWallHit" type="Timer" parent="."]
+one_shot = true
+
+[node name="DurationBulletHit" type="Timer" parent="."]
+one_shot = true
 
 [node name="DurationShield" type="Timer" parent="."]
 
 [node name="ShieldCd" type="Timer" parent="."]
 
 [node name="GPUParticlesTrail" type="GPUParticles2D" parent="."]
+z_index = -1
 amount = 100
 process_material = SubResource("ParticleProcessMaterial_gmltt")
 texture = ExtResource("3_rckf3")
@@ -89,5 +94,6 @@ lifetime = 3.0
 trail_lifetime = 1.35
 
 [connection signal="timeout" from="DurationWallHit" to="." method="_on_duration_wall_hit_timeout"]
+[connection signal="timeout" from="DurationBulletHit" to="." method="_on_duration_bullet_hit_timeout"]
 [connection signal="timeout" from="DurationShield" to="." method="_on_duration_shield_timeout"]
 [connection signal="timeout" from="ShieldCd" to="." method="_on_shield_cd_timeout"]

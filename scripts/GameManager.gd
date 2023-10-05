@@ -15,11 +15,9 @@ func _process(delta):
 
 
 func sendBoostToUI(boost):
-	print("sendboostui")
 	emit_signal("my_signal_boost", boost)
 	pass
 
 func sendSpeedToUI(speed):
-	print("sendspeedtoui")
 	emit_signal("my_signal_speed", speed)
 	pass

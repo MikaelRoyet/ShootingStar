@@ -24,7 +24,9 @@ const CONST_SPEED_SLOW = 0.7
 #WallHit
 const CONST_DURATION_WALLHIT = 1
 var durationWallHitTimer : Timer
+var durationBulletHitTimer : Timer
 var isWallHit = false
+var isBullletHit = false
 
 #Boost
 var CONST_BOOST_MAX = 200
@@ -45,12 +47,12 @@ func _ready():
 	shieldCdTimer = $ShieldCd
 	shieldDurationTimer = $DurationShield
 	durationWallHitTimer = $DurationWallHit
+	durationBulletHitTimer = $DurationBulletHit
 	spriteCharacter = $Sprite2D
 	spriteCharacter.modulate = Color(255,255,255,255)
 
 
 func _process(delta):
-	print(position)
 	
 	#color trail / vitesse
 	#current_trail.set("color",Color(0,0,0,0))
@@ -60,18 +62,20 @@ func _process(delta):
 		shield()
 		
 	if(Input.is_action_pressed("acceleration")):
-		if boost > 0:
+		if boost > 0 && !isBullletHit:
 			boost -= 1	
 			GameManager.sendBoostToUI(boost)
+			print("arch angel isfallingdown")
 			set_speed(CONST_SPEED_MULTI)
 		else:
-			if(!isWallHit):
+			if(!isWallHit && !isBullletHit):
+				print("one more flag in the ground")
 				set_speed(CONST_SPEED_NORMAL)	
 
 			
 			
 	if(Input.is_action_just_released("acceleration")):
-		if(!isWallHit):
+		if(!isWallHit && !isBullletHit):
 			set_speed(CONST_SPEED_NORMAL)	
 
 func _physics_process(delta):
@@ -134,6 +138,9 @@ func set_vulnerable(status):
 func hit():
 	if(is_vulnerable):
 		print("hit2")
+		set_speed(CONST_SPEED_SLOW)
+		durationBulletHitTimer.start(CONST_DURATION_WALLHIT)
+		isBullletHit = true
 	else:
 		print("blocked")
 		boost = CONST_BOOST_MAX
@@ -152,7 +159,14 @@ func _on_duration_wall_hit_timeout():
 	isWallHit = false
 
 
+func _on_duration_bullet_hit_timeout():
+	set_speed(CONST_SPEED_NORMAL)
+	isBullletHit = false
+	
+	
 func _on_duration_shield_timeout():
 	set_vulnerable(true)
 	spriteCharacter.modulate = Color(255,255,255,255)
+
+
 
