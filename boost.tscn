@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6eu7mmlxb1mi"]
+
+[ext_resource type="Texture2D" uid="uid://dnd73u4db6p1t" path="res://Sprites/Trail.png" id="1_hx8x7"]
+[ext_resource type="Script" path="res://Boost.gd" id="1_unq5r"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_03pr5"]
+radius = 33.0151
+
+[node name="Boost" type="Area2D"]
+script = ExtResource("1_unq5r")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0.619608, 1, 0.392157)
+texture = ExtResource("1_hx8x7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_03pr5")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

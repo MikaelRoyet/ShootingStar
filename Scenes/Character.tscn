@@ -77,6 +77,8 @@ one_shot = true
 
 [node name="ShieldCd" type="Timer" parent="."]
 
+[node name="DurationBooster" type="Timer" parent="."]
+
 [node name="GPUParticlesTrail" type="GPUParticles2D" parent="."]
 z_index = -1
 amount = 100
@@ -97,3 +99,4 @@ trail_lifetime = 1.35
 [connection signal="timeout" from="DurationBulletHit" to="." method="_on_duration_bullet_hit_timeout"]
 [connection signal="timeout" from="DurationShield" to="." method="_on_duration_shield_timeout"]
 [connection signal="timeout" from="ShieldCd" to="." method="_on_shield_cd_timeout"]
+[connection signal="timeout" from="DurationBooster" to="." method="_on_duration_booster_timeout"]

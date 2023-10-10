@@ -20,6 +20,7 @@ const CONST_SPEED = 700.0
 const CONST_SPEED_MULTI = 1.75
 const CONST_SPEED_NORMAL = 1
 const CONST_SPEED_SLOW = 0.7
+const CONST_SPEED_SLOW_HIT = 0.5
 
 #WallHit
 const CONST_DURATION_WALLHIT = 1
@@ -42,19 +43,26 @@ var is_vulnerable = true
 var cdShield = 0
 var is_onCd = false
 
+#Booster
+const CONST_BOOSTER_DURATION = 200
+var isOnBooster = false
+var boosterDurationTimer
+
+
 func _ready():
 	CrossHair = $CrossHair
 	shieldCdTimer = $ShieldCd
 	shieldDurationTimer = $DurationShield
 	durationWallHitTimer = $DurationWallHit
 	durationBulletHitTimer = $DurationBulletHit
+	boosterDurationTimer = $DurationBooster
 	spriteCharacter = $Sprite2D
 	spriteCharacter.modulate = Color(255,255,255,255)
 
 
 func _process(delta):
 	
-	
+		
 	if(Input.is_action_just_pressed("shield")):
 		shield()
 		
@@ -133,7 +141,7 @@ func set_vulnerable(status):
 func hit():
 	if(is_vulnerable):
 		print("hit2")
-		set_speed(CONST_SPEED_SLOW)
+		set_speed(CONST_SPEED_SLOW_HIT)
 		durationBulletHitTimer.start(CONST_DURATION_WALLHIT)
 		isBullletHit = true
 	else:
@@ -144,6 +152,11 @@ func hit():
 		set_vulnerable(false)
 		is_onCd = false
 		spriteCharacter.modulate = Color(255,255,255,255)
+
+func booster():
+	set_speed(CONST_SPEED_MULTI)
+	durationBulletHitTimer.start(CONST_DURATION_WALLHIT)
+
 
 func _on_shield_cd_timeout():
 	is_onCd = false
@@ -164,4 +177,5 @@ func _on_duration_shield_timeout():
 	spriteCharacter.modulate = Color(255,255,255,255)
 
 
-
+func _on_duration_booster_timeout():
+	set_speed(CONST_SPEED_NORMAL)

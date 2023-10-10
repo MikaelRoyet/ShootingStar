@@ -1,7 +1,8 @@
 extends Area2D
 
 @export var direction = Vector2(-1,0)
-@export var speed = 100
+@export var speed = 3
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,7 +14,7 @@ func _process(delta):
 	pass
 
 func _physics_process(delta):
-		position =  position + direction 
+		position =  position + direction * speed
 
 func _on_body_entered(body):
 	if(body.is_in_group('Player')):

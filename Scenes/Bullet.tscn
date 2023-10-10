@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dnd73u4db6p1t" path="res://Sprites/Trail.png" id="2_jjphd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hbbfb"]
+radius = 31.0
 
 [node name="Bullet" type="Area2D"]
 script = ExtResource("1_fc6ep")
@@ -14,7 +15,6 @@ shape = SubResource("CircleShape2D_hbbfb")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 0.443137, 0.0823529, 1)
 position = Vector2(-1, 0)
-scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_jjphd")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
