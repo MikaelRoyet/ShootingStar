@@ -54,6 +54,9 @@ var boosterDurationTimer
 #Trail
 var trail
 
+#Particles
+var wallCollisionParticles = load("res://Scenes/collision_wall_particles.tscn")
+
 func _ready():
 	CrossHair = $CrossHair
 	shieldCdTimer = $ShieldCd
@@ -125,6 +128,9 @@ func swap():
 	position = (oldDirection * CONST_DASH_DISTANCE) + position
 	
 func hitWall(collision):
+	var instanceParticle = wallCollisionParticles.instantiate()
+	instanceParticle.position = global_position
+	get_tree().current_scene.add_child(instanceParticle)
 	velocity = velocity.bounce(collision.get_normal())
 	set_speed(CONST_SPEED_SLOW)
 	durationWallHitTimer.start(CONST_DURATION_WALLHIT)

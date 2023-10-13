@@ -70,6 +70,7 @@ amount = 1
 process_material = SubResource("ParticleProcessMaterial_xeg70")
 texture = ExtResource("3_hcot6")
 lifetime = 3.0
+one_shot = true
 trail_lifetime = 1.35
 
 [node name="Line2D" type="Line2D" parent="."]

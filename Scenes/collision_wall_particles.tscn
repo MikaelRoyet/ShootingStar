@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://cvf7we4m0xvn5"]
+
+[ext_resource type="Texture2D" uid="uid://dnd73u4db6p1t" path="res://Sprites/Trail.png" id="1_cadrm"]
+[ext_resource type="Script" path="res://Scenes/ParticlesWall.gd" id="2_k5mbo"]
+
+[sub_resource type="Gradient" id="Gradient_legmp"]
+colors = PackedColorArray(1, 0, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_byuba"]
+gradient = SubResource("Gradient_legmp")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vgt4c"]
+particle_flag_disable_z = true
+direction = Vector3(0, 0, 0)
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 1000.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 0.05
+scale_max = 0.1
+color_ramp = SubResource("GradientTexture1D_byuba")
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 1.0
+
+[node name="CollisionWallParticles" type="GPUParticles2D"]
+position = Vector2(-154, -97)
+amount = 200
+process_material = SubResource("ParticleProcessMaterial_vgt4c")
+texture = ExtResource("1_cadrm")
+one_shot = true
+script = ExtResource("2_k5mbo")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
