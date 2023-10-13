@@ -5,7 +5,7 @@ extends StaticBody2D
 func _ready():
 	var curve = $Path2D.curve
 	var polygon = curve.get_baked_points()
-	print($CollisionPoly.polygon)
+	print(polygon.size())
 	$CollisionPoly.polygon = polygon
 	$Line2D.points = polygon
 	

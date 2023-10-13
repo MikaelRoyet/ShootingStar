@@ -83,6 +83,7 @@ func _process(delta):
 
 func _physics_process(delta):
 
+	print("character", global_position)
 	GameManager.sendSpeedToUI(speed)
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.

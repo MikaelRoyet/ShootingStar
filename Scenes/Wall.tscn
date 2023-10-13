@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://bk4rflfebhc50"]
+
+[ext_resource type="Script" path="res://Scenes/Wall.gd" id="1_0tx2c"]
+[ext_resource type="Texture2D" uid="uid://cnegffykdrncd" path="res://Sprites/LineTexture.png" id="2_gph6x"]
+
+[sub_resource type="Curve2D" id="Curve2D_msbd6"]
+bake_interval = 100.0
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 249, -662, 0, 0, 0, 0, 1031, -962, 0, 0, 0, 0, 1771, -1263, 0, 0, 0, 0, 2263, -1445, 0, 0, 0, 0, 2792, -1759, 0, 0, 0, 0, 3408, -1994, 0, 0, 0, 0, 4407, -1856, 0, 0, 0, 0, 5227, -1313, 0, 0, 0, 0, 5188, -597, 0, 0, 0, 0, 5004, 240, 0, 0, 0, 0, 4713, 777, 0, 0, 0, 0, 3737, 554, 0, 0, 0, 0, 4096, -167, 280.549, 229.201, -280.549, -229.201, 4019, -729, 0, 0, 0, 0, 2578, -369, 0, 0, 0, 0, 1622, -80, 0, 0, 0, 0, 615, 411, 0, 0, 0, 0, 233, -654, 0, 0, 0, 0, 249, -662)
+}
+point_count = 19
+
+[node name="StaticBody2D" type="StaticBody2D"]
+position = Vector2(48, 134)
+script = ExtResource("1_0tx2c")
+
+[node name="CollisionPoly" type="CollisionPolygon2D" parent="."]
+build_mode = 1
+one_way_collision_margin = 20.0
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_msbd6")
+
+[node name="Line2D" type="Line2D" parent="."]
+texture_repeat = 2
+width = 15.0
+texture = ExtResource("2_gph6x")
+texture_mode = 1
