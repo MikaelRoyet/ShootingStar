@@ -21,5 +21,4 @@ func _physics_process(delta):
 
 func set_color(speed):
 	var red_value = -1.25 - (0.5 * (-speed / 200))
-	print(red_value)
 	gradient.set_color(1,Color(red_value,0.1,0.1,1))

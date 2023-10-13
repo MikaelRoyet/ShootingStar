@@ -16,6 +16,8 @@ var current_trail
 
 #Speed
 var speed = CONST_SPEED
+var speedToGo = CONST_SPEED
+const CONST_SPEED_INCR = 15
 const CONST_SPEED = 700.0
 const CONST_SPEED_MULTI = 1.75
 const CONST_SPEED_NORMAL = 1
@@ -86,6 +88,12 @@ func _process(delta):
 
 func _physics_process(delta):
 
+
+	if(speed > speedToGo):
+		speed -= CONST_SPEED_INCR
+	elif(speed < speedToGo):
+		speed += CONST_SPEED_INCR
+	
 	GameManager.sendSpeedToUI(speed)
 	trail.set_color(speed)
 	# Get the input direction and handle the movement/deceleration.
@@ -127,7 +135,7 @@ func hitWall(collision):
 
 func set_speed(multiplicateur):
 	print("set speed to ", multiplicateur)
-	speed = CONST_SPEED * multiplicateur
+	speedToGo = CONST_SPEED * multiplicateur
 
 
 
