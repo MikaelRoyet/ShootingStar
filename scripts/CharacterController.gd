@@ -30,7 +30,7 @@ var isWallHit = false
 var isBullletHit = false
 
 #Boost
-var CONST_BOOST_MAX = 200
+var CONST_BOOST_MAX = 2000
 var boost = CONST_BOOST_MAX
 
 #Shield
@@ -48,6 +48,8 @@ const CONST_BOOSTER_DURATION = 200
 var isOnBooster = false
 var boosterDurationTimer
 
+#Trail
+var trail
 
 func _ready():
 	CrossHair = $CrossHair
@@ -56,6 +58,7 @@ func _ready():
 	durationWallHitTimer = $DurationWallHit
 	durationBulletHitTimer = $DurationBulletHit
 	boosterDurationTimer = $DurationBooster
+	trail = $Line2D
 	spriteCharacter = $Sprite2D
 	spriteCharacter.modulate = Color(255,255,255,255)
 
@@ -83,8 +86,8 @@ func _process(delta):
 
 func _physics_process(delta):
 
-	print("character", global_position)
 	GameManager.sendSpeedToUI(speed)
+	trail.set_color(speed)
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	direction = Input.get_vector("left", "right", "up", "down").normalized()

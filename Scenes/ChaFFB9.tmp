@@ -23,8 +23,6 @@ _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.997512, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="Gradient" id="Gradient_pq7qk"]
-offsets = PackedFloat32Array(0, 0.607242)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [node name="Character" type="CharacterBody2D" groups=["Player"]]
 disable_mode = 2
@@ -69,7 +67,6 @@ trail_lifetime = 1.35
 [node name="Line2D" type="Line2D" parent="."]
 width = 32.0
 width_curve = SubResource("Curve_tso4a")
-default_color = Color(1, 0.00392157, 0.00392157, 0.00392157)
 gradient = SubResource("Gradient_pq7qk")
 script = ExtResource("5_l2mpl")
 MAX_LENGTH = 35

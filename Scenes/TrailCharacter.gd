@@ -7,7 +7,6 @@ var queue : Array
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	global_position = Vector2()
-	print("line", get_parent().global_position)
 	var pos = get_parent().global_position
 	
 	queue.push_front(pos)
@@ -18,3 +17,9 @@ func _physics_process(delta):
 	
 	for point in queue:
 		add_point(point)
+
+
+func set_color(speed):
+	var red_value = -1.25 - (0.5 * (-speed / 200))
+	print(red_value)
+	gradient.set_color(1,Color(red_value,0.1,0.1,1))
