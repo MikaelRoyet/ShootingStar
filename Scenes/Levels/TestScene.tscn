@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://c5xw5s000x004"]
 
-[ext_resource type="PackedScene" uid="uid://d12e7lbi56nd6" path="res://Scenes/Character.tscn" id="1_qqhhr"]
-[ext_resource type="Script" path="res://Scripts/UI.gd" id="3_t74qn"]
-[ext_resource type="PackedScene" uid="uid://b6eu7mmlxb1mi" path="res://boost.tscn" id="4_u3vu0"]
-[ext_resource type="Script" path="res://Scenes/Wall.gd" id="5_e62k3"]
-[ext_resource type="Texture2D" uid="uid://cnegffykdrncd" path="res://Sprites/LineTexture.png" id="5_ieyva"]
+[ext_resource type="PackedScene" uid="uid://d12e7lbi56nd6" path="res://Scenes/Character.tscn" id="1_3qvik"]
+[ext_resource type="Script" path="res://Scripts/UI.gd" id="2_5nsjh"]
+[ext_resource type="PackedScene" uid="uid://b6eu7mmlxb1mi" path="res://boost.tscn" id="3_vdeum"]
+[ext_resource type="Script" path="res://scripts/Wall.gd" id="4_v1fdj"]
+[ext_resource type="Texture2D" uid="uid://cnegffykdrncd" path="res://Sprites/LineTexture.png" id="5_dkiqo"]
 
 [sub_resource type="Curve2D" id="Curve2D_msbd6"]
 bake_interval = 100.0
@@ -21,7 +21,7 @@ background_mode = 1
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Character" parent="." instance=ExtResource("1_qqhhr")]
+[node name="Character" parent="." instance=ExtResource("1_3qvik")]
 position = Vector2(188, 239)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -29,7 +29,7 @@ position = Vector2(188, 239)
 [node name="UI" type="Panel" parent="CanvasLayer"]
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("3_t74qn")
+script = ExtResource("2_5nsjh")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI"]
 layout_mode = 0
@@ -59,21 +59,21 @@ text = "Speed : "
 layout_mode = 2
 text = "0"
 
-[node name="Boost" parent="." instance=ExtResource("4_u3vu0")]
+[node name="Boost" parent="." instance=ExtResource("3_vdeum")]
 position = Vector2(4298, 18)
 
-[node name="Boost2" parent="." instance=ExtResource("4_u3vu0")]
+[node name="Boost2" parent="." instance=ExtResource("3_vdeum")]
 position = Vector2(8389, 1305)
 
-[node name="Boost4" parent="." instance=ExtResource("4_u3vu0")]
+[node name="Boost4" parent="." instance=ExtResource("3_vdeum")]
 position = Vector2(7654, -1365)
 
-[node name="Boost3" parent="." instance=ExtResource("4_u3vu0")]
+[node name="Boost3" parent="." instance=ExtResource("3_vdeum")]
 position = Vector2(5040, 2031)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(-557, 476)
-script = ExtResource("5_e62k3")
+script = ExtResource("4_v1fdj")
 
 [node name="CollisionPoly" type="CollisionPolygon2D" parent="StaticBody2D"]
 build_mode = 1
@@ -87,7 +87,7 @@ curve = SubResource("Curve2D_msbd6")
 [node name="Line2D" type="Line2D" parent="StaticBody2D"]
 texture_repeat = 2
 width = 15.0
-texture = ExtResource("5_ieyva")
+texture = ExtResource("5_dkiqo")
 texture_mode = 1
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="StaticBody2D"]

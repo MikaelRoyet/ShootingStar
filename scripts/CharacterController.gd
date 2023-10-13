@@ -135,10 +135,7 @@ func hitWall(collision):
 	set_speed(CONST_SPEED_SLOW)
 	durationWallHitTimer.start(CONST_DURATION_WALLHIT)
 	isWallHit = true
-	#rebond contre le mur
-	
-	
-	#Acceleration juste apres le wallhit cancel le slow
+
 
 
 func set_speed(multiplicateur):

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bk4rflfebhc50"]
 
-[ext_resource type="Script" path="res://Scenes/Wall.gd" id="1_0tx2c"]
+[ext_resource type="Script" path="res://scripts/Wall.gd" id="1_0tx2c"]
 [ext_resource type="Texture2D" uid="uid://cnegffykdrncd" path="res://Sprites/LineTexture.png" id="2_gph6x"]
 
 [sub_resource type="Curve2D" id="Curve2D_msbd6"]
