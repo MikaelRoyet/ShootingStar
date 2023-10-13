@@ -44,6 +44,7 @@ var shieldDurationTimer : Timer
 var is_vulnerable = true
 var cdShield = 0
 var is_onCd = false
+var particleShield
 
 #Booster
 const CONST_BOOSTER_DURATION = 200
@@ -60,6 +61,7 @@ func _ready():
 	durationWallHitTimer = $DurationWallHit
 	durationBulletHitTimer = $DurationBulletHit
 	boosterDurationTimer = $DurationBooster
+	particleShield = $ShieldParticles
 	trail = $Line2D
 	spriteCharacter = $Sprite2D
 	spriteCharacter.modulate = Color(255,255,255,255)
@@ -134,13 +136,14 @@ func hitWall(collision):
 
 
 func set_speed(multiplicateur):
-	print("set speed to ", multiplicateur)
 	speedToGo = CONST_SPEED * multiplicateur
 
 
 
 func shield():
 	if(!is_onCd):
+		particleShield.emitting = true
+		
 		set_vulnerable(false)
 		shieldCdTimer.start(CONST_CD_SHIELD)
 		shieldDurationTimer.start(CONST_SHIELD_DURATION)
@@ -168,6 +171,7 @@ func hit():
 func booster():
 	set_speed(CONST_SPEED_MULTI)
 	durationBulletHitTimer.start(CONST_DURATION_WALLHIT)
+	durationWallHitTimer.stop()
 
 
 func _on_shield_cd_timeout():
