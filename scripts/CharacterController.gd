@@ -19,7 +19,7 @@ var speed = CONST_SPEED
 var speedToGo = CONST_SPEED
 const CONST_SPEED_INCR = 15
 const CONST_SPEED = 700.0
-const CONST_SPEED_MULTI = 1.75
+const CONST_SPEED_MULTI = 2
 const CONST_SPEED_NORMAL = 1
 const CONST_SPEED_SLOW = 0.7
 const CONST_SPEED_SLOW_HIT = 0.5
@@ -32,8 +32,8 @@ var isWallHit = false
 var isBullletHit = false
 
 #Boost
-var CONST_BOOST_MAX = 2000
-var boost = CONST_BOOST_MAX
+var CONST_NB_BOOST_MAX = 5
+var nb_boost = CONST_NB_BOOST_MAX
 
 #Shield
 const CONST_CD_SHIELD = 5
@@ -55,7 +55,7 @@ var boosterDurationTimer
 var trail
 
 #Particles
-var wallCollisionParticles = load("res://Scenes/Particles/collision_wall_particles.tscn")
+var wallCollisionParticles = load("res://Scenes/Particles/particle_wall_hit.tscn")
 
 func _ready():
 	CrossHair = $CrossHair
@@ -68,22 +68,19 @@ func _ready():
 	trail = $Line2D
 	spriteCharacter = $Sprite2D
 	spriteCharacter.modulate = Color(255,255,255,255)
+	GameManager.sendBoostToUI(nb_boost)
 
 
 func _process(delta):
 	
-	#print(isOnBooster)
 	if(Input.is_action_just_pressed("shield")):
 		shield()
 		
-	if(Input.is_action_pressed("acceleration")):
-		if boost > 0 && !isBullletHit:
-			boost -= 1	
-			GameManager.sendBoostToUI(boost)
-			set_speed(CONST_SPEED_MULTI)
-		else:
-			if(!isWallHit && !isBullletHit):
-				set_speed(CONST_SPEED_NORMAL)	
+	if(Input.is_action_just_pressed("acceleration")):
+		if nb_boost > 0 && !isBullletHit && !isOnBooster:
+			nb_boost -= 1	
+			GameManager.sendBoostToUI(nb_boost)
+			booster()
 
 	if(Input.is_action_just_released("acceleration")):
 		if(isWallHit && isBullletHit):
@@ -121,16 +118,11 @@ func _physics_process(delta):
 		hitWall(collision)
 		print("I collided with ", collision.get_collider().name)
 
-
-
-func swap():
-	print("swwaappppappapapapapapaapapa")
-	position = (oldDirection * CONST_DASH_DISTANCE) + position
 	
 func hitWall(collision):
-	#var instanceParticle = wallCollisionParticles.instantiate()
-	#instanceParticle.position = global_position
-	#get_tree().current_scene.add_child(instanceParticle)
+	var instanceParticle = wallCollisionParticles.instantiate()
+	instanceParticle.position = global_position
+	get_tree().current_scene.add_child(instanceParticle)
 	velocity = velocity.bounce(collision.get_normal())
 	set_speed(CONST_SPEED_SLOW)
 	durationWallHitTimer.start(CONST_DURATION_WALLHIT)
@@ -169,8 +161,11 @@ func hit():
 		isBullletHit = true
 	else:
 		print("blocked")
-		boost = CONST_BOOST_MAX
-		GameManager.sendBoostToUI(boost)
+		
+		if(nb_boost < CONST_NB_BOOST_MAX):
+			nb_boost += 1
+			
+		GameManager.sendBoostToUI(nb_boost)
 		shieldCdTimer.stop()
 		set_vulnerable(false)
 		is_onCd = false
