@@ -82,13 +82,7 @@ func _process(delta):
 			GameManager.sendBoostToUI(nb_boost)
 			booster()
 
-	if(Input.is_action_just_released("acceleration")):
-		if(isWallHit && isBullletHit):
-			set_speed(CONST_SPEED_SLOW)
-		elif(isOnBooster):
-			set_speed(CONST_SPEED_MULTI)
-		else:
-			set_speed(CONST_SPEED_NORMAL)
+
 
 func _physics_process(delta):
 
