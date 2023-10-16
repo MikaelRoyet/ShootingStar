@@ -17,8 +17,8 @@ var current_trail
 #Speed
 var speed = CONST_SPEED
 var speedToGo = CONST_SPEED
-const CONST_SPEED_INCR = 15
-const CONST_SPEED = 700.0
+const CONST_SPEED_INCR = 20
+const CONST_SPEED = 1000.0
 const CONST_SPEED_MULTI = 2
 const CONST_SPEED_NORMAL = 1
 const CONST_SPEED_SLOW = 0.7

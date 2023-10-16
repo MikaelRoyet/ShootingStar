@@ -83,7 +83,7 @@ width_curve = SubResource("Curve_tso4a")
 default_color = Color(1, 0.00392157, 0.00392157, 0.00392157)
 gradient = SubResource("Gradient_pq7qk")
 script = ExtResource("4_y04nx")
-MAX_LENGTH = 35
+MAX_LENGTH = 25
 
 [connection signal="timeout" from="DurationWallHit" to="." method="_on_duration_wall_hit_timeout"]
 [connection signal="timeout" from="DurationBulletHit" to="." method="_on_duration_bullet_hit_timeout"]

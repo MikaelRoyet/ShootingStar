@@ -22,8 +22,6 @@ build_mode = 1
 one_way_collision_margin = 20.0
 
 [node name="Path2D" type="Path2D" parent="."]
-position = Vector2(5.08041, 0)
-scale = Vector2(0.978196, 1)
 curve = SubResource("Curve2D_msbd6")
 
 [node name="Line2D" type="Line2D" parent="."]
