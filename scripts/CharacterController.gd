@@ -55,7 +55,7 @@ var boosterDurationTimer
 var trail
 
 #Particles
-var wallCollisionParticles = load("res://Scenes/collision_wall_particles.tscn")
+var wallCollisionParticles = load("res://Scenes/Particles/collision_wall_particles.tscn")
 
 func _ready():
 	CrossHair = $CrossHair
@@ -72,7 +72,7 @@ func _ready():
 
 func _process(delta):
 	
-		
+	#print(isOnBooster)
 	if(Input.is_action_just_pressed("shield")):
 		shield()
 		
@@ -86,10 +86,12 @@ func _process(delta):
 				set_speed(CONST_SPEED_NORMAL)	
 
 	if(Input.is_action_just_released("acceleration")):
-		if(!isWallHit && !isBullletHit):
-			set_speed(CONST_SPEED_NORMAL)
-		else:
+		if(isWallHit && isBullletHit):
 			set_speed(CONST_SPEED_SLOW)
+		elif(isOnBooster):
+			set_speed(CONST_SPEED_MULTI)
+		else:
+			set_speed(CONST_SPEED_NORMAL)
 
 func _physics_process(delta):
 
@@ -112,8 +114,6 @@ func _physics_process(delta):
 		velocity = (velocity + oldDirection * 75).normalized() * speed
 	
 	CrossHair.global_position = (oldDirection * CONST_DASH_DISTANCE) + position
-	# Using move_and_collide.
-	
 
 	
 	collision = move_and_collide(velocity * delta)
@@ -128,12 +128,15 @@ func swap():
 	position = (oldDirection * CONST_DASH_DISTANCE) + position
 	
 func hitWall(collision):
-	var instanceParticle = wallCollisionParticles.instantiate()
-	instanceParticle.position = global_position
-	get_tree().current_scene.add_child(instanceParticle)
+	#var instanceParticle = wallCollisionParticles.instantiate()
+	#instanceParticle.position = global_position
+	#get_tree().current_scene.add_child(instanceParticle)
 	velocity = velocity.bounce(collision.get_normal())
 	set_speed(CONST_SPEED_SLOW)
 	durationWallHitTimer.start(CONST_DURATION_WALLHIT)
+	boosterDurationTimer.stop()
+	isOnBooster = false
+	
 	isWallHit = true
 
 
@@ -161,6 +164,8 @@ func hit():
 		print("hit2")
 		set_speed(CONST_SPEED_SLOW_HIT)
 		durationBulletHitTimer.start(CONST_DURATION_WALLHIT)
+		boosterDurationTimer.stop()
+		isOnBooster = false
 		isBullletHit = true
 	else:
 		print("blocked")
@@ -173,8 +178,10 @@ func hit():
 
 func booster():
 	set_speed(CONST_SPEED_MULTI)
-	durationBulletHitTimer.start(CONST_DURATION_WALLHIT)
+	boosterDurationTimer.start(CONST_DURATION_WALLHIT)
 	durationWallHitTimer.stop()
+	isOnBooster = true
+	print("bah wsh")
 
 
 func _on_shield_cd_timeout():
@@ -189,6 +196,7 @@ func _on_duration_wall_hit_timeout():
 func _on_duration_bullet_hit_timeout():
 	set_speed(CONST_SPEED_NORMAL)
 	isBullletHit = false
+
 	
 	
 func _on_duration_shield_timeout():
@@ -198,3 +206,4 @@ func _on_duration_shield_timeout():
 
 func _on_duration_booster_timeout():
 	set_speed(CONST_SPEED_NORMAL)
+	isOnBooster = false

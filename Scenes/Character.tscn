@@ -59,10 +59,13 @@ one_shot = true
 one_shot = true
 
 [node name="DurationShield" type="Timer" parent="."]
+one_shot = true
 
 [node name="ShieldCd" type="Timer" parent="."]
+one_shot = true
 
 [node name="DurationBooster" type="Timer" parent="."]
+one_shot = true
 
 [node name="ShieldParticles" type="GPUParticles2D" parent="."]
 emitting = false
