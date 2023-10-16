@@ -1,10 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://corq0qf430ixn"]
+[gd_scene load_steps=5 format=3 uid="uid://corq0qf430ixn"]
 
 [ext_resource type="Script" path="res://Scripts/Bullet.gd" id="1_fc6ep"]
 [ext_resource type="Texture2D" uid="uid://dnd73u4db6p1t" path="res://Sprites/Trail.png" id="2_jjphd"]
+[ext_resource type="Material" uid="uid://2qmyv58xwjdw" path="res://Ressources/ParticleMaterial/Particle_Bullet.tres" id="3_dmx7j"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hbbfb"]
-radius = 31.0
+radius = 52.0
 
 [node name="Bullet" type="Area2D"]
 script = ExtResource("1_fc6ep")
@@ -13,8 +14,15 @@ script = ExtResource("1_fc6ep")
 shape = SubResource("CircleShape2D_hbbfb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(1, 0.443137, 0.0823529, 1)
 position = Vector2(-1, 0)
 texture = ExtResource("2_jjphd")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 500
+process_material = ExtResource("3_dmx7j")
+texture = ExtResource("2_jjphd")
+preprocess = 10.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
