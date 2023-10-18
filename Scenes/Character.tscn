@@ -56,7 +56,6 @@ texture = ExtResource("2_2hgxc")
 region_rect = Rect2(0, 0, 129, 125.5)
 
 [node name="SpriteRechargeShield" type="Sprite2D" parent="."]
-visible = false
 modulate = Color(1, 0, 0, 1)
 material = ExtResource("4_c5jgc")
 scale = Vector2(0.7, 0.7)
