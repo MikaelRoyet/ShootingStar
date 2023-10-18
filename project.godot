@@ -24,10 +24,6 @@ GameManager="*res://Scripts/GameManager.gd"
 window/size/viewport_width=1600
 window/size/viewport_height=900
 
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/rmsmartshape/plugin.cfg")
-
 [input]
 
 left={

@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://c6mq67hohkdvk"]
+
+[ext_resource type="Shader" path="res://Ressources/Shaders/ShieldShader.gdshader" id="1_lessp"]
+
+[resource]
+shader = ExtResource("1_lessp")
+shader_parameter/alpha = 1.0

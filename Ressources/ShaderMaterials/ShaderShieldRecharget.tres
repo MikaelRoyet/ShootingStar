@@ -1,0 +1,6 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://3tn0k5bu7p6p"]
+
+[ext_resource type="Shader" path="res://Ressources/Shaders/RechargeShield.gdshader" id="1_35iws"]
+
+[resource]
+shader = ExtResource("1_35iws")
