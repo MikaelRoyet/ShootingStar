@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://c5xw5s000x004"]
+[gd_scene load_steps=10 format=3 uid="uid://c5xw5s000x004"]
 
 [ext_resource type="PackedScene" uid="uid://d12e7lbi56nd6" path="res://Scenes/Character.tscn" id="1_3qvik"]
 [ext_resource type="Script" path="res://Scripts/UI.gd" id="2_5nsjh"]
 [ext_resource type="PackedScene" uid="uid://b6eu7mmlxb1mi" path="res://boost.tscn" id="3_vdeum"]
 [ext_resource type="Script" path="res://scripts/Wall.gd" id="4_v1fdj"]
 [ext_resource type="Texture2D" uid="uid://cnegffykdrncd" path="res://Sprites/LineTexture.png" id="5_dkiqo"]
+[ext_resource type="PackedScene" uid="uid://c1onaf1t0uxcl" path="res://Scenes/FinishLine.tscn" id="6_argnv"]
 
 [sub_resource type="Curve2D" id="Curve2D_msbd6"]
 bake_interval = 100.0
@@ -95,3 +96,6 @@ occluder = SubResource("OccluderPolygon2D_cctwu")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_3lrq1")
+
+[node name="FinishLine" parent="." instance=ExtResource("6_argnv")]
+position = Vector2(492, -298)

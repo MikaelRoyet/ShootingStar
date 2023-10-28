@@ -7,6 +7,7 @@ const CONST_DASH_DISTANCE = 300
 var CrossHair
 
 var collision
+var isControllable = true
 
 #Sprite
 var spriteCharacter
@@ -73,10 +74,10 @@ func _ready():
 
 func _process(delta):
 	
-	if(Input.is_action_just_pressed("shield")):
+	if(Input.is_action_just_pressed("shield") && isControllable):
 		shield()
 		
-	if(Input.is_action_just_pressed("acceleration")):
+	if(Input.is_action_just_pressed("acceleration") && isControllable):
 		if nb_boost > 0 && !isBullletHit && !isOnBooster:
 			nb_boost -= 1	
 			GameManager.sendBoostToUI(nb_boost)
@@ -96,8 +97,9 @@ func _physics_process(delta):
 	trail.set_color(speed)
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	direction = Input.get_vector("left", "right", "up", "down").normalized()
-	
+	if(isControllable):
+		direction = Input.get_vector("left", "right", "up", "down").normalized()
+		
 	if direction != Vector2.ZERO:
 		velocity = (velocity + direction * 75).normalized() * speed
 		oldDirection = direction
@@ -128,7 +130,8 @@ func hitWall(collision):
 
 
 func set_speed(multiplicateur):
-	speedToGo = CONST_SPEED * multiplicateur
+	if(isControllable):
+		speedToGo = CONST_SPEED * multiplicateur
 
 
 
@@ -170,8 +173,11 @@ func booster():
 	boosterDurationTimer.start(CONST_DURATION_WALLHIT)
 	durationWallHitTimer.stop()
 	isOnBooster = true
-	print("bah wsh")
 
+
+func finishLevel():
+	isControllable = false
+	speedToGo = 0
 
 func _on_shield_cd_timeout():
 	is_onCd = false
@@ -196,3 +202,4 @@ func _on_duration_shield_timeout():
 func _on_duration_booster_timeout():
 	set_speed(CONST_SPEED_NORMAL)
 	isOnBooster = false
+
