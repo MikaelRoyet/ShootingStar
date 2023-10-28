@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cf683jr0qlqpq"]
+[gd_scene load_steps=11 format=3 uid="uid://cf683jr0qlqpq"]
 
 [ext_resource type="PackedScene" uid="uid://d12e7lbi56nd6" path="res://Scenes/Character.tscn" id="1_e2d64"]
 [ext_resource type="Script" path="res://Scripts/UI.gd" id="2_up1x0"]
@@ -6,13 +6,14 @@
 [ext_resource type="Script" path="res://scripts/Wall.gd" id="4_bffye"]
 [ext_resource type="Texture2D" uid="uid://cnegffykdrncd" path="res://Sprites/LineTexture.png" id="5_7qie7"]
 [ext_resource type="PackedScene" uid="uid://c1onaf1t0uxcl" path="res://Scenes/FinishLine.tscn" id="6_luout"]
+[ext_resource type="PackedScene" uid="uid://g6nj1og7u255" path="res://Scenes/miniBoost.tscn" id="7_gxuk0"]
 
 [sub_resource type="Curve2D" id="Curve2D_msbd6"]
 bake_interval = 100.0
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 359.764, -479, -1045, -297.471, 1045, 297.471, 4782.19, -1790, 0, 0, 0, 0, 6439.32, -508, -1028.14, -26.9391, 1028.14, 26.9391, 8219.13, 911, -495.153, 1049.44, 495.153, -1049.44, 10917, -695, -1471.7, 1412.71, 1471.7, -1412.71, 11945.4, -5757, -1719.28, -699.626, 1719.28, 699.626, 16113.3, -6901, -1977.88, -470.021, 1977.88, 470.021, 24717.9, 1428, -1144.22, 281.971, 1144.22, -281.971, 29810, 1949.12, -60.3679, 904.307, 60.3679, -904.307, 32567, 1.95695, 1223.1, 85.9794, -1223.1, -85.9794, 30703, -1766.14, 818.174, -241.896, -818.174, 241.896, 27696, -903, 0, 0, 0, 0, 26287, -3602, 0, 0, 0, 0, 26073, -4392, 0, 0, 0, 0, 25449, -6597, 0, 0, 0, 0, 26184, -6834, 0, 0, 0, 0, 26773, -4587, 0, 0, 0, 0, 26924, -4145, -535.013, 43.1804, 535.013, -43.1804, 27867, -1484, -1305.26, -49.7595, 1305.26, 49.7595, 30615, -2272.02, -7.26567, -1002.64, 7.26567, 1002.64, 33148, 1.95695, 771.289, -91.2258, -771.289, 91.2258, 30022, 2580.23, 1767.2, 662.642, -1767.2, -662.642, 24194.5, 1926, 1251.64, 242.178, -1251.64, -242.178, 15366, -6557, 728.975, -753.443, -728.975, 753.443, 12295, -5271, 453.89, -968.713, -453.89, 968.713, 11714.3, -1159, 999.635, -495.269, -999.635, 495.269, 10503.9, 673, 1230.1, 71.8376, -1230.1, -71.8376, 8124.06, 1321, 311.127, 336.38, -311.127, -336.38, 5766.66, -712, 984.168, 213.957, -984.168, -213.957, 4484.7, -1308, 0, 0, 0, 0, 655.206, 104, 0, 0, 0, 0, 362.831, -479)
+"points": PackedVector2Array(0, 0, 0, 0, 359.764, -479, -1045, -297.471, 1045, 297.471, 4782.19, -1790, 0, 0, 0, 0, 6439.32, -508, -1028.14, -26.9391, 1028.14, 26.9391, 8219.13, 911, -495.153, 1049.44, 495.153, -1049.44, 10917, -695, -1471.7, 1412.71, 1471.7, -1412.71, 11945.4, -5757, -1719.28, -699.626, 1719.28, 699.626, 16113.3, -6901, -1977.88, -470.021, 1977.88, 470.021, 24717.9, 1428, -1144.22, 281.971, 1144.22, -281.971, 29810, 1949.12, -60.3679, 904.307, 60.3679, -904.307, 32567, 1.95695, 1223.1, 85.9794, -1223.1, -85.9794, 30703, -1766.14, 818.174, -241.896, -818.174, 241.896, 27696, -903, -335.621, 755.147, 335.621, -755.147, 26509, -2861, -563.363, 359.594, 563.363, -359.594, 28907, -3700, 563.363, 347.607, -563.363, -347.607, 28475, -4946, 0, 0, 0, 0, 22650, -4742, 0, 0, 0, 0, 22603, -5389, -731.174, -611.309, 731.174, 611.309, 28907, -5378, 443.499, -443.499, -443.499, 443.499, 29458, -3292, 227.743, -803.093, -227.743, 803.093, 27085, -2525, -535.013, 43.1804, 535.013, -43.1804, 27867, -1484, -1305.26, -49.7595, 1305.26, 49.7595, 30615, -2272.02, -7.26567, -1002.64, 7.26567, 1002.64, 33148, 1.95695, 771.289, -91.2258, -771.289, 91.2258, 30022, 2580.23, 1767.2, 662.642, -1767.2, -662.642, 24194.5, 1926, 0, 0, 0, 0, 18000.2, -4160.04, 1251.64, 242.178, -1251.64, -242.178, 15366, -6557, 728.975, -753.443, -728.975, 753.443, 12295, -5271, 453.89, -968.713, -453.89, 968.713, 11714.3, -1159, 999.635, -495.269, -999.635, 495.269, 10503.9, 673, 1230.1, 71.8376, -1230.1, -71.8376, 8124.06, 1321, 311.127, 336.38, -311.127, -336.38, 5766.66, -712, 984.168, 213.957, -984.168, -213.957, 4484.7, -1308, 0, 0, 0, 0, 655.206, 104, 0, 0, 0, 0, 362.831, -479)
 }
-point_count = 32
+point_count = 35
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_cctwu"]
 closed = false
@@ -60,18 +61,6 @@ text = "Speed : "
 layout_mode = 2
 text = "0"
 
-[node name="Boost2" parent="." instance=ExtResource("3_8nq6v")]
-position = Vector2(17048, -5757)
-
-[node name="Boost4" parent="." instance=ExtResource("3_8nq6v")]
-position = Vector2(18913, -3721)
-
-[node name="Boost3" parent="." instance=ExtResource("3_8nq6v")]
-position = Vector2(21016, -1418)
-
-[node name="Boost5" parent="." instance=ExtResource("3_8nq6v")]
-position = Vector2(23098, 764)
-
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 script = ExtResource("4_bffye")
 
@@ -97,6 +86,72 @@ environment = SubResource("Environment_3lrq1")
 
 [node name="FinishLine" parent="." instance=ExtResource("6_luout")]
 z_index = -1
-position = Vector2(26510, -4206)
-rotation = -0.313832
+position = Vector2(25292, -5285)
+rotation = -1.62005
 scale = Vector2(7.73913, 7.73913)
+
+[node name="Boost1" type="Node2D" parent="."]
+position = Vector2(53, -38)
+
+[node name="Boost2" parent="Boost1" instance=ExtResource("3_8nq6v")]
+position = Vector2(11416, -1590)
+
+[node name="MiniBoost" parent="Boost1" instance=ExtResource("7_gxuk0")]
+position = Vector2(11269, -1223)
+
+[node name="MiniBoost4" parent="Boost1" instance=ExtResource("7_gxuk0")]
+position = Vector2(11146, -854)
+
+[node name="MiniBoost6" parent="Boost1" instance=ExtResource("7_gxuk0")]
+position = Vector2(11182, -455)
+
+[node name="MiniBoost7" parent="Boost1" instance=ExtResource("7_gxuk0")]
+position = Vector2(11146, -140)
+
+[node name="MiniBoost9" parent="Boost1" instance=ExtResource("7_gxuk0")]
+position = Vector2(10899, 262)
+
+[node name="MiniBoost10" parent="Boost1" instance=ExtResource("7_gxuk0")]
+position = Vector2(10572, 511)
+
+[node name="Boost2" type="Node2D" parent="."]
+position = Vector2(6412, -3187)
+
+[node name="Boost2" parent="Boost2" instance=ExtResource("3_8nq6v")]
+position = Vector2(11725, -1348)
+
+[node name="MiniBoost" parent="Boost2" instance=ExtResource("7_gxuk0")]
+position = Vector2(11375, -1718)
+
+[node name="MiniBoost4" parent="Boost2" instance=ExtResource("7_gxuk0")]
+position = Vector2(11074, -2085)
+
+[node name="MiniBoost6" parent="Boost2" instance=ExtResource("7_gxuk0")]
+position = Vector2(10723, -2461)
+
+[node name="MiniBoost7" parent="Boost2" instance=ExtResource("7_gxuk0")]
+position = Vector2(10414, -2762)
+
+[node name="MiniBoost9" parent="Boost2" instance=ExtResource("7_gxuk0")]
+position = Vector2(10059, -3058)
+
+[node name="Boost3" type="Node2D" parent="."]
+position = Vector2(11441, 2236)
+
+[node name="Boost2" parent="Boost3" instance=ExtResource("3_8nq6v")]
+position = Vector2(11781, -1260)
+
+[node name="MiniBoost" parent="Boost3" instance=ExtResource("7_gxuk0")]
+position = Vector2(11375, -1614)
+
+[node name="MiniBoost4" parent="Boost3" instance=ExtResource("7_gxuk0")]
+position = Vector2(10922, -1965)
+
+[node name="MiniBoost6" parent="Boost3" instance=ExtResource("7_gxuk0")]
+position = Vector2(10563, -2301)
+
+[node name="MiniBoost7" parent="Boost3" instance=ExtResource("7_gxuk0")]
+position = Vector2(10086, -2730)
+
+[node name="MiniBoost9" parent="Boost3" instance=ExtResource("7_gxuk0")]
+position = Vector2(9723, -3074)

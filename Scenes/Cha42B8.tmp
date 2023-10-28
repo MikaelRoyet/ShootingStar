@@ -1,0 +1,108 @@
+[gd_scene load_steps=13 format=3 uid="uid://d12e7lbi56nd6"]
+
+[ext_resource type="Script" path="res://Scripts/CharacterController.gd" id="1_8un7y"]
+[ext_resource type="Texture2D" uid="uid://l0vb1d4smbcs" path="res://Sprites/Player.png" id="2_2hgxc"]
+[ext_resource type="Material" uid="uid://c6mq67hohkdvk" path="res://Ressources/ShaderMaterials/ShaderShieldActivate.tres" id="3_e6qcn"]
+[ext_resource type="Texture2D" uid="uid://bbriuckiqjm8q" path="res://Sprites/Circle.png" id="3_hcot6"]
+[ext_resource type="Material" uid="uid://3tn0k5bu7p6p" path="res://Ressources/ShaderMaterials/ShaderShieldRecharget.tres" id="4_c5jgc"]
+[ext_resource type="Script" path="res://scripts/TrailCharacter.gd" id="4_y04nx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_offd8"]
+radius = 15.0
+
+[sub_resource type="Curve" id="Curve_psyhm"]
+max_value = 2.0
+_data = [Vector2(0, 2), 0.0, 0.0, 0, 0, Vector2(0.0989305, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_wmsho"]
+curve = SubResource("Curve_psyhm")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xeg70"]
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -10.0
+scale_curve = SubResource("CurveTexture_wmsho")
+color = Color(1, 0.0117647, 0, 1)
+
+[sub_resource type="Curve" id="Curve_tso4a"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.997512, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_pq7qk"]
+offsets = PackedFloat32Array(0, 0.607242)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[node name="Character" type="CharacterBody2D" groups=["Player"]]
+z_index = 1
+disable_mode = 2
+collision_mask = 3
+floor_block_on_wall = false
+script = ExtResource("1_8un7y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_offd8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_2hgxc")
+region_rect = Rect2(0, 0, 129, 125.5)
+
+[node name="SpriteShield" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+material = ExtResource("3_e6qcn")
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_2hgxc")
+region_rect = Rect2(0, 0, 129, 125.5)
+
+[node name="SpriteRechargeShield" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+material = ExtResource("4_c5jgc")
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("3_hcot6")
+region_rect = Rect2(0, 0, 129, 125.5)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="CrossHair" type="Sprite2D" parent="."]
+position = Vector2(-3.8147e-06, 0.999996)
+scale = Vector2(0.0859375, 0.0859375)
+
+[node name="DurationWallHit" type="Timer" parent="."]
+one_shot = true
+
+[node name="DurationBulletHit" type="Timer" parent="."]
+one_shot = true
+
+[node name="DurationShield" type="Timer" parent="."]
+one_shot = true
+
+[node name="ShieldCd" type="Timer" parent="."]
+one_shot = true
+
+[node name="DurationBooster" type="Timer" parent="."]
+one_shot = true
+
+[node name="ShieldParticles" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_xeg70")
+texture = ExtResource("3_hcot6")
+lifetime = 3.0
+one_shot = true
+trail_lifetime = 1.35
+
+[node name="Line2D" type="Line2D" parent="."]
+z_index = -1
+width = 32.0
+width_curve = SubResource("Curve_tso4a")
+default_color = Color(1, 0.00392157, 0.00392157, 0.00392157)
+gradient = SubResource("Gradient_pq7qk")
+script = ExtResource("4_y04nx")
+MAX_LENGTH = 25
+
+[connection signal="timeout" from="DurationWallHit" to="." method="_on_duration_wall_hit_timeout"]
+[connection signal="timeout" from="DurationBulletHit" to="." method="_on_duration_bullet_hit_timeout"]
+[connection signal="timeout" from="DurationShield" to="." method="_on_duration_shield_timeout"]
+[connection signal="timeout" from="ShieldCd" to="." method="_on_shield_cd_timeout"]
+[connection signal="timeout" from="DurationBooster" to="." method="_on_duration_booster_timeout"]

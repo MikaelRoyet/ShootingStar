@@ -21,6 +21,7 @@ var speedToGo = CONST_SPEED
 const CONST_SPEED_INCR = 20
 const CONST_SPEED = 1000.0
 const CONST_SPEED_MULTI = 2
+const CONST_SPEED_MULTI_MINI = 1.3
 const CONST_SPEED_NORMAL = 1
 const CONST_SPEED_SLOW = 0.7
 const CONST_SPEED_SLOW_HIT = 0.5
@@ -81,7 +82,7 @@ func _process(delta):
 		if nb_boost > 0 && !isBullletHit && !isOnBooster:
 			nb_boost -= 1	
 			GameManager.sendBoostToUI(nb_boost)
-			booster()
+			booster(false)
 
 
 
@@ -168,8 +169,12 @@ func hit():
 		is_onCd = false
 		spriteCharacter.modulate = Color(255,255,255,255)
 
-func booster():
-	set_speed(CONST_SPEED_MULTI)
+func booster(isMiniBoost):
+	if(isMiniBoost):
+		set_speed(CONST_SPEED_MULTI_MINI)
+	else:
+		set_speed(CONST_SPEED_MULTI)
+		
 	boosterDurationTimer.start(CONST_DURATION_WALLHIT)
 	durationWallHitTimer.stop()
 	isOnBooster = true

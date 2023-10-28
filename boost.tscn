@@ -1,14 +1,14 @@
 [gd_scene load_steps=5 format=3 uid="uid://b6eu7mmlxb1mi"]
 
 [ext_resource type="Texture2D" uid="uid://dnd73u4db6p1t" path="res://Sprites/Trail.png" id="1_hx8x7"]
-[ext_resource type="Script" path="res://Boost.gd" id="1_unq5r"]
-[ext_resource type="Material" uid="uid://b7xj8xjsmvjaf" path="res://Ressources/ParticleMaterial/Particle_Booster.tres" id="3_hqlbk"]
+[ext_resource type="Script" path="res://Scripts/Boost.gd" id="1_vuwt3"]
+[ext_resource type="Material" uid="uid://cpi5m5wcx55d3" path="res://Ressources/ParticleMaterial/Particle_Booster.tres" id="3_hqlbk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_03pr5"]
-radius = 43.0
+radius = 55.0
 
 [node name="Boost" type="Area2D"]
-script = ExtResource("1_unq5r")
+script = ExtResource("1_vuwt3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
