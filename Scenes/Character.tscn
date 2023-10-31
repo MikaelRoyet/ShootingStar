@@ -49,6 +49,7 @@ texture = ExtResource("2_2hgxc")
 region_rect = Rect2(0, 0, 129, 125.5)
 
 [node name="SpriteShield" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(1, 0, 0, 1)
 material = ExtResource("3_e6qcn")
 scale = Vector2(0.1, 0.1)

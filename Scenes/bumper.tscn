@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bralpdrcb3jnv"]
+
+[ext_resource type="Script" path="res://Scripts/bumper.gd" id="1_mnbth"]
+[ext_resource type="Texture2D" uid="uid://con7j5hnr44f4" path="res://Sprites/TExtureTEst2.png" id="2_henvx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_km1vv"]
+size = Vector2(220, 20)
+
+[node name="Bumper" type="StaticBody2D" groups=["Bumper"]]
+script = ExtResource("1_mnbth")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_km1vv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-5.72205e-06, -2.38419e-07)
+scale = Vector2(6.875, 0.625)
+texture = ExtResource("2_henvx")

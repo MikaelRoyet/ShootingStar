@@ -120,13 +120,18 @@ func hitWall(collision):
 	var instanceParticle = wallCollisionParticles.instantiate()
 	instanceParticle.position = global_position
 	get_tree().current_scene.add_child(instanceParticle)
-	velocity = velocity.bounce(collision.get_normal())
-	set_speed(CONST_SPEED_SLOW)
-	durationWallHitTimer.start(CONST_DURATION_WALLHIT)
-	boosterDurationTimer.stop()
-	isOnBooster = false
-	
-	isWallHit = true
+	if(collision.get_collider().is_in_group('Bumper')):
+		velocity = velocity.bounce(collision.get_normal())
+		set_speed(CONST_SPEED_MULTI)
+		durationWallHitTimer.start(CONST_DURATION_WALLHIT)
+	else:
+		velocity = velocity.bounce(collision.get_normal())
+		set_speed(CONST_SPEED_SLOW)
+		durationWallHitTimer.start(CONST_DURATION_WALLHIT)
+		boosterDurationTimer.stop()
+		isOnBooster = false
+		
+		isWallHit = true
 
 
 

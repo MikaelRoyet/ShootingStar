@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c5xw5s000x004"]
+[gd_scene load_steps=12 format=3 uid="uid://c5xw5s000x004"]
 
 [ext_resource type="PackedScene" uid="uid://d12e7lbi56nd6" path="res://Scenes/Character.tscn" id="1_3qvik"]
 [ext_resource type="Script" path="res://Scripts/UI.gd" id="2_5nsjh"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://scripts/Wall.gd" id="4_v1fdj"]
 [ext_resource type="Texture2D" uid="uid://cnegffykdrncd" path="res://Sprites/LineTexture.png" id="5_dkiqo"]
 [ext_resource type="PackedScene" uid="uid://c1onaf1t0uxcl" path="res://Scenes/FinishLine.tscn" id="6_argnv"]
+[ext_resource type="PackedScene" uid="uid://bralpdrcb3jnv" path="res://Scenes/bumper.tscn" id="8_omq6j"]
 
 [sub_resource type="Curve2D" id="Curve2D_msbd6"]
 bake_interval = 100.0
@@ -102,3 +103,7 @@ environment = SubResource("Environment_3lrq1")
 
 [node name="FinishLine" parent="." instance=ExtResource("6_argnv")]
 position = Vector2(492, -298)
+
+[node name="Bumper" parent="." instance=ExtResource("8_omq6j")]
+position = Vector2(1386, 182)
+rotation = -0.419519
