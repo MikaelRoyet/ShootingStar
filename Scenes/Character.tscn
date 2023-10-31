@@ -64,6 +64,7 @@ texture = ExtResource("3_hcot6")
 region_rect = Rect2(0, 0, 129, 125.5)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.75, 0.75)
 
 [node name="CrossHair" type="Sprite2D" parent="."]
 position = Vector2(-3.8147e-06, 0.999996)

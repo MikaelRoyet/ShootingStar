@@ -133,6 +133,11 @@ func hitWall(collision):
 		
 		isWallHit = true
 
+func hitGlassWall():
+	if(speed < 1200 ):
+		set_speed(CONST_SPEED_SLOW)
+		durationWallHitTimer.start(CONST_DURATION_WALLHIT)
+		
 
 
 func set_speed(multiplicateur):
