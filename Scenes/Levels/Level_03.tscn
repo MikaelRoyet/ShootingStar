@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bdccrxd8jgha2"]
+[gd_scene load_steps=14 format=3 uid="uid://bdccrxd8jgha2"]
 
 [ext_resource type="PackedScene" uid="uid://d12e7lbi56nd6" path="res://Scenes/Character.tscn" id="1_l2lwx"]
 [ext_resource type="Script" path="res://Scripts/UI.gd" id="2_j0cqs"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://g6nj1og7u255" path="res://Scenes/miniBoost.tscn" id="8_wfwl5"]
 [ext_resource type="PackedScene" uid="uid://b6eu7mmlxb1mi" path="res://Scenes/boost.tscn" id="9_lgi0i"]
 [ext_resource type="PackedScene" uid="uid://c1onaf1t0uxcl" path="res://Scenes/FinishLine.tscn" id="10_1g4dr"]
+[ext_resource type="PackedScene" uid="uid://brkj7y084tlqp" path="res://Scenes/megaBoost.tscn" id="10_gk8an"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_cctwu"]
 closed = false
@@ -78,6 +79,7 @@ occluder = SubResource("OccluderPolygon2D_cctwu")
 sdf_collision = false
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(-200, -969)
 script = ExtResource("3_x26rm")
 
 [node name="CollisionPoly" type="CollisionPolygon2D" parent="StaticBody2D2"]
@@ -140,11 +142,38 @@ position = Vector2(2789, -406)
 [node name="MiniBoost5" parent="." instance=ExtResource("8_wfwl5")]
 position = Vector2(5776, -430)
 
+[node name="MiniBoost9" parent="." instance=ExtResource("8_wfwl5")]
+position = Vector2(7964, 88)
+
+[node name="MiniBoost10" parent="." instance=ExtResource("8_wfwl5")]
+position = Vector2(7850, -183)
+
+[node name="MiniBoost11" parent="." instance=ExtResource("8_wfwl5")]
+position = Vector2(7755, -426)
+
+[node name="MiniBoost12" parent="." instance=ExtResource("8_wfwl5")]
+position = Vector2(8977, -936)
+
+[node name="MiniBoost13" parent="." instance=ExtResource("8_wfwl5")]
+position = Vector2(9224, -733)
+
+[node name="MiniBoost14" parent="." instance=ExtResource("8_wfwl5")]
+position = Vector2(9469, -501)
+
+[node name="MiniBoost15" parent="." instance=ExtResource("8_wfwl5")]
+position = Vector2(11714, -2337)
+
+[node name="MiniBoost16" parent="." instance=ExtResource("8_wfwl5")]
+position = Vector2(11851, -2107)
+
+[node name="MiniBoost17" parent="." instance=ExtResource("8_wfwl5")]
+position = Vector2(12005, -1869)
+
 [node name="MiniBoost6" parent="." instance=ExtResource("8_wfwl5")]
 position = Vector2(5448, -347)
 
 [node name="MiniBoost7" parent="." instance=ExtResource("8_wfwl5")]
-position = Vector2(6059, -335)
+position = Vector2(6066, -301)
 
 [node name="MiniBoost8" parent="." instance=ExtResource("8_wfwl5")]
 position = Vector2(5160, -168)
@@ -164,6 +193,37 @@ position = Vector2(3466, -203)
 [node name="Boost3" parent="." instance=ExtResource("9_lgi0i")]
 position = Vector2(6359, -90)
 
+[node name="Boost4" parent="." instance=ExtResource("9_lgi0i")]
+position = Vector2(7662, -689)
+
+[node name="Boost5" parent="." instance=ExtResource("9_lgi0i")]
+position = Vector2(11576, -2559)
+
+[node name="MegaBoost" parent="." instance=ExtResource("10_gk8an")]
+position = Vector2(11214, -4571)
+
+[node name="MegaBoost2" parent="." instance=ExtResource("10_gk8an")]
+position = Vector2(14036, -4591)
+
+[node name="MegaBoost3" parent="." instance=ExtResource("10_gk8an")]
+position = Vector2(16495, -4601)
+
+[node name="MegaBoost4" parent="." instance=ExtResource("10_gk8an")]
+position = Vector2(19065, -4601)
+
+[node name="MegaBoost5" parent="." instance=ExtResource("10_gk8an")]
+position = Vector2(21625, -4601)
+
+[node name="MegaBoost6" parent="." instance=ExtResource("10_gk8an")]
+position = Vector2(23601, -4611)
+
 [node name="FinishLine" parent="." instance=ExtResource("10_1g4dr")]
 position = Vector2(20105, 2534)
 rotation = 1.2762
+
+[node name="Bumper8" parent="." instance=ExtResource("7_dow3o")]
+position = Vector2(12253, 439)
+
+[node name="Bumper9" parent="." instance=ExtResource("7_dow3o")]
+position = Vector2(10989, -3469)
+rotation = 0.155151

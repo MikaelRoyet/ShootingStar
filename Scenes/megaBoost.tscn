@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://brkj7y084tlqp"]
+
+[ext_resource type="Script" path="res://Scripts/megaBoost.gd" id="1_vua0d"]
+[ext_resource type="Texture2D" uid="uid://dnd73u4db6p1t" path="res://Sprites/Trail.png" id="2_y7vn0"]
+[ext_resource type="Material" uid="uid://d1w0s60t0ed3h" path="res://Ressources/ParticleMaterial/Particle_Booster_Mega.tres" id="3_1mja6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_03pr5"]
+radius = 73.0069
+
+[node name="MegaBoost" type="Area2D"]
+script = ExtResource("1_vua0d")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 0.619608, 1, 0.392157)
+texture = ExtResource("2_y7vn0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_03pr5")
+
+[node name="Particle_Boost" type="GPUParticles2D" parent="."]
+amount = 300
+process_material = ExtResource("3_1mja6")
+texture = ExtResource("2_y7vn0")
+lifetime = 5.0
+preprocess = 10.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered" flags=18]

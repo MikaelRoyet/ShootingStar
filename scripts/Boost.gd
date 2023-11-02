@@ -11,7 +11,7 @@ func _ready():
 
 func _on_body_entered(body):
 	if(body.is_in_group('Player')):
-		body.booster(false)
+		body.booster("booster")
 		
 		var instanceParticle = particleBoostExplosionScene.instantiate()
 		instanceParticle.position = global_position
