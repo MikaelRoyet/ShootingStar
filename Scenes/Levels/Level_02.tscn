@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dqjye1tjbte50"]
+[gd_scene load_steps=13 format=3 uid="uid://dqjye1tjbte50"]
 
 [ext_resource type="PackedScene" uid="uid://d12e7lbi56nd6" path="res://Scenes/Character.tscn" id="1_ye7wj"]
 [ext_resource type="Script" path="res://Scripts/UI.gd" id="2_erjvp"]
@@ -7,6 +7,9 @@
 [ext_resource type="Curve2D" uid="uid://bv7bwlcphvrwk" path="res://Ressources/Curves/Level_02_Curve.tres" id="4_p6qqc"]
 [ext_resource type="Curve2D" uid="uid://cjvue0hssamxy" path="res://Ressources/Curves/CircleCurve.tres" id="6_a8v3g"]
 [ext_resource type="PackedScene" uid="uid://bralpdrcb3jnv" path="res://Scenes/bumper.tscn" id="7_77d0a"]
+[ext_resource type="PackedScene" uid="uid://g6nj1og7u255" path="res://Scenes/miniBoost.tscn" id="8_lh1xj"]
+[ext_resource type="PackedScene" uid="uid://b6eu7mmlxb1mi" path="res://Scenes/boost.tscn" id="9_oa65b"]
+[ext_resource type="PackedScene" uid="uid://c1onaf1t0uxcl" path="res://Scenes/FinishLine.tscn" id="10_w5rmf"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_cctwu"]
 closed = false
@@ -104,5 +107,63 @@ position = Vector2(53, -38)
 position = Vector2(6378, -3256)
 
 [node name="Bumper" parent="." instance=ExtResource("7_77d0a")]
-position = Vector2(13727, 2247)
-rotation = -1.09678
+position = Vector2(13702, 2272)
+rotation = -0.908704
+
+[node name="Bumper2" parent="." instance=ExtResource("7_77d0a")]
+position = Vector2(14279, 1320)
+rotation = -0.687384
+
+[node name="Bumper3" parent="." instance=ExtResource("7_77d0a")]
+position = Vector2(17833, -380)
+rotation = -2.83455
+
+[node name="Bumper4" parent="." instance=ExtResource("7_77d0a")]
+position = Vector2(18041, -312)
+rotation = -2.83455
+
+[node name="Bumper5" parent="." instance=ExtResource("7_77d0a")]
+position = Vector2(19667, 1338)
+rotation = -2.98842
+
+[node name="Bumper6" parent="." instance=ExtResource("7_77d0a")]
+position = Vector2(19875, 1370)
+rotation = -2.98842
+
+[node name="Bumper7" parent="." instance=ExtResource("7_77d0a")]
+position = Vector2(23454, 1523)
+rotation = -4.38632
+
+[node name="MiniBoost" parent="." instance=ExtResource("8_lh1xj")]
+position = Vector2(12503, -178)
+
+[node name="MiniBoost5" parent="." instance=ExtResource("8_lh1xj")]
+position = Vector2(13129, -2681)
+
+[node name="MiniBoost6" parent="." instance=ExtResource("8_lh1xj")]
+position = Vector2(13386, -2426)
+
+[node name="MiniBoost7" parent="." instance=ExtResource("8_lh1xj")]
+position = Vector2(13735, -2219)
+
+[node name="MiniBoost8" parent="." instance=ExtResource("8_lh1xj")]
+position = Vector2(14013, -2066)
+
+[node name="MiniBoost2" parent="." instance=ExtResource("8_lh1xj")]
+position = Vector2(12198, -380)
+
+[node name="MiniBoost3" parent="." instance=ExtResource("8_lh1xj")]
+position = Vector2(11910, -587)
+
+[node name="MiniBoost4" parent="." instance=ExtResource("8_lh1xj")]
+position = Vector2(11636, -775)
+
+[node name="Boost" parent="." instance=ExtResource("9_oa65b")]
+position = Vector2(11326, -982)
+
+[node name="Boost3" parent="." instance=ExtResource("9_oa65b")]
+position = Vector2(14273, -1910)
+
+[node name="FinishLine" parent="." instance=ExtResource("10_w5rmf")]
+position = Vector2(20105, 2534)
+rotation = 1.2762

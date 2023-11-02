@@ -25,6 +25,7 @@ const CONST_SPEED_MULTI_MINI = 1.3
 const CONST_SPEED_NORMAL = 1
 const CONST_SPEED_SLOW = 0.7
 const CONST_SPEED_SLOW_HIT = 0.5
+const CONST_TURN = 85
 
 #WallHit
 const CONST_DURATION_WALLHIT = 1
@@ -102,10 +103,10 @@ func _physics_process(delta):
 		direction = Input.get_vector("left", "right", "up", "down").normalized()
 		
 	if direction != Vector2.ZERO:
-		velocity = (velocity + direction * 75).normalized() * speed
+		velocity = (velocity + direction * CONST_TURN).normalized() * speed
 		oldDirection = direction
 	else:
-		velocity = (velocity + oldDirection * 75).normalized() * speed
+		velocity = (velocity + oldDirection * CONST_TURN).normalized() * speed
 	
 	CrossHair.global_position = (oldDirection * CONST_DASH_DISTANCE) + position
 

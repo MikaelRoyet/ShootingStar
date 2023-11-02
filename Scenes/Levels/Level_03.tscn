@@ -1,0 +1,169 @@
+[gd_scene load_steps=13 format=3 uid="uid://bdccrxd8jgha2"]
+
+[ext_resource type="PackedScene" uid="uid://d12e7lbi56nd6" path="res://Scenes/Character.tscn" id="1_l2lwx"]
+[ext_resource type="Script" path="res://Scripts/UI.gd" id="2_j0cqs"]
+[ext_resource type="Script" path="res://scripts/Wall.gd" id="3_x26rm"]
+[ext_resource type="Curve2D" uid="uid://cd4flt08eejm1" path="res://Ressources/Curves/Level_03_Curve.tres" id="4_wylkj"]
+[ext_resource type="Texture2D" uid="uid://cnegffykdrncd" path="res://Sprites/LineTexture.png" id="5_6w200"]
+[ext_resource type="Curve2D" uid="uid://cjvue0hssamxy" path="res://Ressources/Curves/CircleCurve.tres" id="6_ad0ht"]
+[ext_resource type="PackedScene" uid="uid://bralpdrcb3jnv" path="res://Scenes/bumper.tscn" id="7_dow3o"]
+[ext_resource type="PackedScene" uid="uid://g6nj1og7u255" path="res://Scenes/miniBoost.tscn" id="8_wfwl5"]
+[ext_resource type="PackedScene" uid="uid://b6eu7mmlxb1mi" path="res://Scenes/boost.tscn" id="9_lgi0i"]
+[ext_resource type="PackedScene" uid="uid://c1onaf1t0uxcl" path="res://Scenes/FinishLine.tscn" id="10_1g4dr"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_cctwu"]
+closed = false
+
+[sub_resource type="Environment" id="Environment_3lrq1"]
+background_mode = 1
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Character" parent="." instance=ExtResource("1_l2lwx")]
+position = Vector2(627, -209)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Panel" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_j0cqs")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI/VBoxContainer"]
+layout_mode = 2
+
+[node name="LabelBoost" type="Label" parent="CanvasLayer/UI/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Boost : "
+
+[node name="ValueBoost" type="Label" parent="CanvasLayer/UI/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "0
+"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/UI/VBoxContainer"]
+layout_mode = 2
+
+[node name="LabelSpeed" type="Label" parent="CanvasLayer/UI/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Speed : "
+
+[node name="ValueSpeed" type="Label" parent="CanvasLayer/UI/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "0"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+script = ExtResource("3_x26rm")
+
+[node name="CollisionPoly" type="CollisionPolygon2D" parent="StaticBody2D"]
+build_mode = 1
+one_way_collision_margin = 20.0
+
+[node name="Path2D" type="Path2D" parent="StaticBody2D"]
+curve = ExtResource("4_wylkj")
+
+[node name="Line2D" type="Line2D" parent="StaticBody2D"]
+texture_repeat = 2
+width = 15.0
+texture = ExtResource("5_6w200")
+texture_mode = 1
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="StaticBody2D"]
+occluder = SubResource("OccluderPolygon2D_cctwu")
+sdf_collision = false
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+script = ExtResource("3_x26rm")
+
+[node name="CollisionPoly" type="CollisionPolygon2D" parent="StaticBody2D2"]
+build_mode = 1
+one_way_collision_margin = 20.0
+
+[node name="Path2D" type="Path2D" parent="StaticBody2D2"]
+curve = ExtResource("6_ad0ht")
+
+[node name="Line2D" type="Line2D" parent="StaticBody2D2"]
+texture_repeat = 2
+width = 15.0
+texture = ExtResource("5_6w200")
+texture_mode = 1
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="StaticBody2D2"]
+occluder = SubResource("OccluderPolygon2D_cctwu")
+sdf_collision = false
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_3lrq1")
+
+[node name="Boost1" type="Node2D" parent="."]
+position = Vector2(53, -38)
+
+[node name="Boost2" type="Node2D" parent="."]
+position = Vector2(6378, -3256)
+
+[node name="Bumper" parent="." instance=ExtResource("7_dow3o")]
+position = Vector2(13702, 2272)
+rotation = -0.908704
+
+[node name="Bumper2" parent="." instance=ExtResource("7_dow3o")]
+position = Vector2(14279, 1320)
+rotation = -0.687384
+
+[node name="Bumper3" parent="." instance=ExtResource("7_dow3o")]
+position = Vector2(17833, -380)
+rotation = -2.83455
+
+[node name="Bumper4" parent="." instance=ExtResource("7_dow3o")]
+position = Vector2(18041, -312)
+rotation = -2.83455
+
+[node name="Bumper5" parent="." instance=ExtResource("7_dow3o")]
+position = Vector2(19667, 1338)
+rotation = -2.98842
+
+[node name="Bumper6" parent="." instance=ExtResource("7_dow3o")]
+position = Vector2(19875, 1370)
+rotation = -2.98842
+
+[node name="Bumper7" parent="." instance=ExtResource("7_dow3o")]
+position = Vector2(23454, 1523)
+rotation = -4.38632
+
+[node name="MiniBoost" parent="." instance=ExtResource("8_wfwl5")]
+position = Vector2(2789, -406)
+
+[node name="MiniBoost5" parent="." instance=ExtResource("8_wfwl5")]
+position = Vector2(5776, -430)
+
+[node name="MiniBoost6" parent="." instance=ExtResource("8_wfwl5")]
+position = Vector2(5448, -347)
+
+[node name="MiniBoost7" parent="." instance=ExtResource("8_wfwl5")]
+position = Vector2(6059, -335)
+
+[node name="MiniBoost8" parent="." instance=ExtResource("8_wfwl5")]
+position = Vector2(5160, -168)
+
+[node name="MiniBoost2" parent="." instance=ExtResource("8_wfwl5")]
+position = Vector2(2560, -466)
+
+[node name="MiniBoost3" parent="." instance=ExtResource("8_wfwl5")]
+position = Vector2(3232, -264)
+
+[node name="MiniBoost4" parent="." instance=ExtResource("8_wfwl5")]
+position = Vector2(3016, -337)
+
+[node name="Boost" parent="." instance=ExtResource("9_lgi0i")]
+position = Vector2(3466, -203)
+
+[node name="Boost3" parent="." instance=ExtResource("9_lgi0i")]
+position = Vector2(6359, -90)
+
+[node name="FinishLine" parent="." instance=ExtResource("10_1g4dr")]
+position = Vector2(20105, 2534)
+rotation = 1.2762

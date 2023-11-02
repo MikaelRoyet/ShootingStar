@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://d12e7lbi56nd6" path="res://Scenes/Character.tscn" id="1_e2d64"]
 [ext_resource type="Script" path="res://Scripts/UI.gd" id="2_up1x0"]
-[ext_resource type="PackedScene" uid="uid://b6eu7mmlxb1mi" path="res://boost.tscn" id="3_8nq6v"]
+[ext_resource type="PackedScene" uid="uid://b6eu7mmlxb1mi" path="res://Scenes/boost.tscn" id="3_8nq6v"]
 [ext_resource type="Curve2D" uid="uid://hptkk0u8lmhx" path="res://Ressources/Curves/Level_01_Curve.tres" id="4_467if"]
 [ext_resource type="Script" path="res://scripts/Wall.gd" id="4_bffye"]
 [ext_resource type="Texture2D" uid="uid://cnegffykdrncd" path="res://Sprites/LineTexture.png" id="5_7qie7"]
