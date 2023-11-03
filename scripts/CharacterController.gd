@@ -56,6 +56,12 @@ var boosterDurationTimer
 #Trail
 var trail
 
+#Camera
+var camera
+
+#Shakyy
+
+
 #Particles
 var wallCollisionParticles = load("res://Scenes/Particles/particle_wall_hit.tscn")
 
@@ -69,6 +75,7 @@ func _ready():
 	particleShield = $ShieldParticles
 	trail = $Line2D
 	spriteCharacter = $Sprite2D
+	camera = $Camera2D
 	spriteCharacter.modulate = Color(255,255,255,255)
 	GameManager.sendBoostToUI(nb_boost)
 
@@ -117,6 +124,7 @@ func _physics_process(delta):
 
 	
 func hitWall(collisionParam):
+	camera.applyShake(computeShakeStrength(), 5.0)
 	var instanceParticle = wallCollisionParticles.instantiate()
 	instanceParticle.position = global_position
 	get_tree().current_scene.add_child(instanceParticle)
@@ -134,6 +142,7 @@ func hitWall(collisionParam):
 		isWallHit = true
 
 func hitGlassWall():
+	camera.applyShake(computeShakeStrength(), 5.0)
 	if(speed < 1200 ):
 		set_speed(CONST_SPEED_SLOW)
 		durationWallHitTimer.start(CONST_DURATION_WALLHIT)
@@ -183,14 +192,21 @@ func booster(boostType):
 	match boostType:
 		"minibooster":
 			set_speed(CONST_SPEED_MULTI_MINI)
+			camera.applyShake(computeShakeStrength() / 3, 10.0)
 		"booster":
 			set_speed(CONST_SPEED_MULTI)
+			camera.applyShake(computeShakeStrength() / 2, 10.0)
 		"maxibooster":
 			set_speed(CONST_SPEED_MULTI_MAXI)
+			camera.applyShake(computeShakeStrength(), 10.0)
 		
 	boosterDurationTimer.start(CONST_DURATION_WALLHIT)
 	durationWallHitTimer.stop()
 	isOnBooster = true
+
+
+func computeShakeStrength() -> int:
+	return speed / 40
 
 
 func finishLevel():

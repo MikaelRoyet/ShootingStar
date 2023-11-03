@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://d12e7lbi56nd6"]
+[gd_scene load_steps=15 format=3 uid="uid://d12e7lbi56nd6"]
 
 [ext_resource type="Script" path="res://Scripts/CharacterController.gd" id="1_8un7y"]
 [ext_resource type="Texture2D" uid="uid://l0vb1d4smbcs" path="res://Sprites/Player.png" id="2_2hgxc"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bbriuckiqjm8q" path="res://Sprites/Circle.png" id="3_hcot6"]
 [ext_resource type="Material" uid="uid://3tn0k5bu7p6p" path="res://Ressources/ShaderMaterials/ShaderShieldRecharget.tres" id="4_c5jgc"]
 [ext_resource type="Script" path="res://scripts/TrailCharacter.gd" id="4_y04nx"]
+[ext_resource type="Script" path="res://Scripts/Camera2D.gd" id="7_cabxw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_offd8"]
 radius = 15.0
@@ -66,6 +67,7 @@ region_rect = Rect2(0, 0, 129, 125.5)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.9, 0.9)
+script = ExtResource("7_cabxw")
 
 [node name="CrossHair" type="Sprite2D" parent="."]
 visible = false

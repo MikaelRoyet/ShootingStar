@@ -60,7 +60,6 @@ script = ExtResource("4_bffye")
 
 [node name="CollisionPoly" type="CollisionPolygon2D" parent="StaticBody2D"]
 build_mode = 1
-one_way_collision_margin = 20.0
 
 [node name="Path2D" type="Path2D" parent="StaticBody2D"]
 curve = ExtResource("4_467if")
