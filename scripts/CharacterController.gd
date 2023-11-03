@@ -12,14 +12,12 @@ var isControllable = true
 #Sprite
 var spriteCharacter
 
-#Trail
-var current_trail
 
 #Speed
 var speed = CONST_SPEED
 var speedToGo = CONST_SPEED
 const CONST_SPEED_INCR = 20
-const CONST_SPEED = 1000.0
+const CONST_SPEED = 900.0
 const CONST_SPEED_MULTI = 2
 const CONST_SPEED_MULTI_MINI = 1.3
 const CONST_SPEED_MULTI_MAXI = 5
@@ -84,7 +82,7 @@ func _process(delta):
 		if nb_boost > 0 && !isBullletHit && !isOnBooster:
 			nb_boost -= 1	
 			GameManager.sendBoostToUI(nb_boost)
-			booster(false)
+			booster("booster")
 
 
 
@@ -118,12 +116,12 @@ func _physics_process(delta):
 		print("I collided with ", collision.get_collider().name)
 
 	
-func hitWall(collision):
+func hitWall(collisionParam):
 	var instanceParticle = wallCollisionParticles.instantiate()
 	instanceParticle.position = global_position
 	get_tree().current_scene.add_child(instanceParticle)
 	if(collision.get_collider().is_in_group('Bumper')):
-		velocity = velocity.bounce(collision.get_normal())
+		velocity = velocity.bounce(collisionParam.get_normal())
 		set_speed(CONST_SPEED_MULTI)
 		durationWallHitTimer.start(CONST_DURATION_WALLHIT)
 	else:

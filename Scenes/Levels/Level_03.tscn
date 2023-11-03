@@ -105,37 +105,6 @@ environment = SubResource("Environment_3lrq1")
 [node name="Boost1" type="Node2D" parent="."]
 position = Vector2(53, -38)
 
-[node name="Boost2" type="Node2D" parent="."]
-position = Vector2(6378, -3256)
-
-[node name="Bumper" parent="." instance=ExtResource("7_dow3o")]
-position = Vector2(13702, 2272)
-rotation = -0.908704
-
-[node name="Bumper2" parent="." instance=ExtResource("7_dow3o")]
-position = Vector2(14279, 1320)
-rotation = -0.687384
-
-[node name="Bumper3" parent="." instance=ExtResource("7_dow3o")]
-position = Vector2(17833, -380)
-rotation = -2.83455
-
-[node name="Bumper4" parent="." instance=ExtResource("7_dow3o")]
-position = Vector2(18041, -312)
-rotation = -2.83455
-
-[node name="Bumper5" parent="." instance=ExtResource("7_dow3o")]
-position = Vector2(19667, 1338)
-rotation = -2.98842
-
-[node name="Bumper6" parent="." instance=ExtResource("7_dow3o")]
-position = Vector2(19875, 1370)
-rotation = -2.98842
-
-[node name="Bumper7" parent="." instance=ExtResource("7_dow3o")]
-position = Vector2(23454, 1523)
-rotation = -4.38632
-
 [node name="MiniBoost" parent="." instance=ExtResource("8_wfwl5")]
 position = Vector2(2789, -406)
 
@@ -143,13 +112,13 @@ position = Vector2(2789, -406)
 position = Vector2(5776, -430)
 
 [node name="MiniBoost9" parent="." instance=ExtResource("8_wfwl5")]
-position = Vector2(7964, 88)
+position = Vector2(7949, 106)
 
 [node name="MiniBoost10" parent="." instance=ExtResource("8_wfwl5")]
-position = Vector2(7850, -183)
+position = Vector2(7847, -138)
 
 [node name="MiniBoost11" parent="." instance=ExtResource("8_wfwl5")]
-position = Vector2(7755, -426)
+position = Vector2(7731, -366)
 
 [node name="MiniBoost12" parent="." instance=ExtResource("8_wfwl5")]
 position = Vector2(8977, -936)
@@ -158,16 +127,16 @@ position = Vector2(8977, -936)
 position = Vector2(9224, -733)
 
 [node name="MiniBoost14" parent="." instance=ExtResource("8_wfwl5")]
-position = Vector2(9469, -501)
+position = Vector2(8756, -1100)
 
 [node name="MiniBoost15" parent="." instance=ExtResource("8_wfwl5")]
-position = Vector2(11714, -2337)
+position = Vector2(11828, -2130)
 
 [node name="MiniBoost16" parent="." instance=ExtResource("8_wfwl5")]
-position = Vector2(11851, -2107)
+position = Vector2(11965, -1900)
 
 [node name="MiniBoost17" parent="." instance=ExtResource("8_wfwl5")]
-position = Vector2(12005, -1869)
+position = Vector2(12119, -1662)
 
 [node name="MiniBoost6" parent="." instance=ExtResource("8_wfwl5")]
 position = Vector2(5448, -347)
@@ -194,36 +163,29 @@ position = Vector2(3466, -203)
 position = Vector2(6359, -90)
 
 [node name="Boost4" parent="." instance=ExtResource("9_lgi0i")]
-position = Vector2(7662, -689)
+position = Vector2(7599, -602)
 
 [node name="Boost5" parent="." instance=ExtResource("9_lgi0i")]
-position = Vector2(11576, -2559)
+position = Vector2(11690, -2352)
 
 [node name="MegaBoost" parent="." instance=ExtResource("10_gk8an")]
-position = Vector2(11214, -4571)
-
-[node name="MegaBoost2" parent="." instance=ExtResource("10_gk8an")]
-position = Vector2(14036, -4591)
-
-[node name="MegaBoost3" parent="." instance=ExtResource("10_gk8an")]
-position = Vector2(16495, -4601)
-
-[node name="MegaBoost4" parent="." instance=ExtResource("10_gk8an")]
-position = Vector2(19065, -4601)
-
-[node name="MegaBoost5" parent="." instance=ExtResource("10_gk8an")]
-position = Vector2(21625, -4601)
-
-[node name="MegaBoost6" parent="." instance=ExtResource("10_gk8an")]
-position = Vector2(23601, -4611)
-
-[node name="FinishLine" parent="." instance=ExtResource("10_1g4dr")]
-position = Vector2(20105, 2534)
-rotation = 1.2762
+position = Vector2(13069, -4596)
 
 [node name="Bumper8" parent="." instance=ExtResource("7_dow3o")]
-position = Vector2(12253, 439)
+position = Vector2(12265, 457)
+
+[node name="Bumper11" parent="." instance=ExtResource("7_dow3o")]
+position = Vector2(18800, -4455)
+scale = Vector2(50, 1)
+
+[node name="Bumper12" parent="." instance=ExtResource("7_dow3o")]
+position = Vector2(18825, -4737)
+scale = Vector2(50, 1)
 
 [node name="Bumper9" parent="." instance=ExtResource("7_dow3o")]
 position = Vector2(10989, -3469)
 rotation = 0.155151
+
+[node name="FinishLine" parent="." instance=ExtResource("10_1g4dr")]
+position = Vector2(22319, -2880)
+rotation = 1.52461

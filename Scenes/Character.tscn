@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://d12e7lbi56nd6"]
+[gd_scene load_steps=14 format=3 uid="uid://d12e7lbi56nd6"]
 
 [ext_resource type="Script" path="res://Scripts/CharacterController.gd" id="1_8un7y"]
 [ext_resource type="Texture2D" uid="uid://l0vb1d4smbcs" path="res://Sprites/Player.png" id="2_2hgxc"]
+[ext_resource type="Texture2D" uid="uid://dnd73u4db6p1t" path="res://Sprites/Trail.png" id="2_e6xss"]
 [ext_resource type="Material" uid="uid://c6mq67hohkdvk" path="res://Ressources/ShaderMaterials/ShaderShieldActivate.tres" id="3_e6qcn"]
 [ext_resource type="Texture2D" uid="uid://bbriuckiqjm8q" path="res://Sprites/Circle.png" id="3_hcot6"]
 [ext_resource type="Material" uid="uid://3tn0k5bu7p6p" path="res://Ressources/ShaderMaterials/ShaderShieldRecharget.tres" id="4_c5jgc"]
@@ -37,7 +38,6 @@ colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 z_index = 1
 disable_mode = 2
 collision_mask = 3
-floor_block_on_wall = false
 script = ExtResource("1_8un7y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -45,7 +45,7 @@ shape = SubResource("CircleShape2D_offd8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_2hgxc")
+texture = ExtResource("2_e6xss")
 region_rect = Rect2(0, 0, 129, 125.5)
 
 [node name="SpriteShield" type="Sprite2D" parent="."]
@@ -57,6 +57,7 @@ texture = ExtResource("2_2hgxc")
 region_rect = Rect2(0, 0, 129, 125.5)
 
 [node name="SpriteRechargeShield" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(1, 0, 0, 1)
 material = ExtResource("4_c5jgc")
 scale = Vector2(0.7, 0.7)
@@ -67,6 +68,7 @@ region_rect = Rect2(0, 0, 129, 125.5)
 zoom = Vector2(0.75, 0.75)
 
 [node name="CrossHair" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(-3.8147e-06, 0.999996)
 scale = Vector2(0.0859375, 0.0859375)
 

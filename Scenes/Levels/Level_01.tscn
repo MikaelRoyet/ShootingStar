@@ -88,25 +88,25 @@ scale = Vector2(7.73913, 7.73913)
 position = Vector2(53, -38)
 
 [node name="Boost2" parent="Boost1" instance=ExtResource("3_8nq6v")]
-position = Vector2(11416, -1590)
+position = Vector2(11350, -1638)
 
 [node name="MiniBoost" parent="Boost1" instance=ExtResource("7_gxuk0")]
 position = Vector2(11269, -1223)
 
 [node name="MiniBoost4" parent="Boost1" instance=ExtResource("7_gxuk0")]
-position = Vector2(11146, -854)
+position = Vector2(11200, -896)
 
 [node name="MiniBoost6" parent="Boost1" instance=ExtResource("7_gxuk0")]
-position = Vector2(11182, -455)
+position = Vector2(11056, -509)
 
 [node name="MiniBoost7" parent="Boost1" instance=ExtResource("7_gxuk0")]
-position = Vector2(11146, -140)
+position = Vector2(10924, -164)
 
 [node name="MiniBoost9" parent="Boost1" instance=ExtResource("7_gxuk0")]
-position = Vector2(10899, 262)
+position = Vector2(10725, 172)
 
 [node name="MiniBoost10" parent="Boost1" instance=ExtResource("7_gxuk0")]
-position = Vector2(10572, 511)
+position = Vector2(10512, 433)
 
 [node name="Boost2" type="Node2D" parent="."]
 position = Vector2(6378, -3256)
