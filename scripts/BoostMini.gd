@@ -5,7 +5,7 @@ var particleBoost
 
 
 func _ready():
-	particleBoostExplosionScene = load("res://Scenes/Particles/particle_boost_explostion.tscn")
+	particleBoostExplosionScene = load("res://Scenes/Particles/particle_boost_mini_explosion.tscn")
 	particleBoost = $Particle_Boost
 
 

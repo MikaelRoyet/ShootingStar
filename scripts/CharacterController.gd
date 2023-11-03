@@ -17,7 +17,7 @@ var spriteCharacter
 var speed = CONST_SPEED
 var speedToGo = CONST_SPEED
 const CONST_SPEED_INCR = 20
-const CONST_SPEED = 900.0
+const CONST_SPEED = 1000.0
 const CONST_SPEED_MULTI = 2
 const CONST_SPEED_MULTI_MINI = 1.3
 const CONST_SPEED_MULTI_MAXI = 5

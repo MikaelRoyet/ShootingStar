@@ -5,7 +5,7 @@
 [ext_resource type="Material" uid="uid://b7xj8xjsmvjaf" path="res://Ressources/ParticleMaterial/Particle_Booster_Mini.tres" id="3_8jd8a"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_03pr5"]
-radius = 35.0
+radius = 45.0111
 
 [node name="MiniBoost" type="Area2D"]
 script = ExtResource("1_epmnw")
@@ -19,7 +19,7 @@ texture = ExtResource("2_5daet")
 shape = SubResource("CircleShape2D_03pr5")
 
 [node name="Particle_Boost" type="GPUParticles2D" parent="."]
-amount = 300
+amount = 200
 process_material = ExtResource("3_8jd8a")
 texture = ExtResource("2_5daet")
 lifetime = 5.0

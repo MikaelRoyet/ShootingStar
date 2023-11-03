@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bv87jc38kbc8s"]
+
+[ext_resource type="Material" uid="uid://dlbwfr5a0uou1" path="res://Ressources/ParticleMaterial/Particle_Booster_Explosion.tres" id="1_ego8j"]
+[ext_resource type="Texture2D" uid="uid://dnd73u4db6p1t" path="res://Sprites/Trail.png" id="2_v41gi"]
+[ext_resource type="Script" path="res://Scripts/particle_boost_explosion.gd" id="3_kv8hg"]
+
+[node name="Particle_Boost_explostion" type="GPUParticles2D"]
+amount = 1000
+process_material = ExtResource("1_ego8j")
+texture = ExtResource("2_v41gi")
+lifetime = 5.0
+speed_scale = 5.0
+script = ExtResource("3_kv8hg")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

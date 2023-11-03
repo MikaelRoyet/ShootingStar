@@ -1,18 +1,26 @@
-[gd_resource type="ParticleProcessMaterial" load_steps=3 format=3 uid="uid://cpi5m5wcx55d3"]
+[gd_resource type="ParticleProcessMaterial" load_steps=5 format=3 uid="uid://cpi5m5wcx55d3"]
 
 [sub_resource type="Gradient" id="Gradient_004gf"]
 offsets = PackedFloat32Array(0, 0.994302)
-colors = PackedColorArray(0.58361, 0.166829, 0.679458, 1, 1, 0.766039, 0.913529, 1)
+colors = PackedColorArray(1, 0.313726, 0, 1, 1, 0.713145, 0.558372, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_nqbyf"]
 gradient = SubResource("Gradient_004gf")
 use_hdr = true
 
+[sub_resource type="Curve" id="Curve_yodx3"]
+min_value = -1.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, -1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_137lo"]
+curve = SubResource("Curve_yodx3")
+
 [resource]
 emission_shape = 6
 emission_ring_axis = Vector3(0, 0, 1)
-emission_ring_height = 40.0
-emission_ring_radius = 50.0
+emission_ring_height = 60.0
+emission_ring_radius = 55.0
 emission_ring_inner_radius = 35.0
 particle_flag_disable_z = true
 direction = Vector3(0, 0, 0)
@@ -22,6 +30,7 @@ initial_velocity_min = 1.0
 initial_velocity_max = 1.0
 orbit_velocity_min = 1.0
 orbit_velocity_max = 1.0
-scale_min = 0.1
-scale_max = 0.1
+scale_min = 0.35
+scale_max = 0.35
 color_ramp = SubResource("GradientTexture1D_nqbyf")
+hue_variation_curve = SubResource("CurveTexture_137lo")

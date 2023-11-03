@@ -1,15 +1,14 @@
-[gd_resource type="ParticleProcessMaterial" load_steps=5 format=3 uid="uid://dlbwfr5a0uou1"]
+[gd_resource type="ParticleProcessMaterial" load_steps=5 format=3 uid="uid://bbxgr7m7hhmhm"]
 
-[sub_resource type="Gradient" id="Gradient_wn4i2"]
-offsets = PackedFloat32Array(0.00569801, 1)
-colors = PackedColorArray(1, 0.313726, 0, 1, 1, 1, 1, 0)
+[sub_resource type="Gradient" id="Gradient_piqw4"]
+colors = PackedColorArray(0.901961, 0.819608, 0, 1, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_fthly"]
-gradient = SubResource("Gradient_wn4i2")
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_e1sku"]
+gradient = SubResource("Gradient_piqw4")
 
 [sub_resource type="Gradient" id="Gradient_kmqas"]
 offsets = PackedFloat32Array(0, 0.997085)
-colors = PackedColorArray(1, 0.313726, 0, 1, 1, 0.74497, 0.678553, 1)
+colors = PackedColorArray(0.901961, 0.819608, 0, 1, 0.94902, 0.898039, 0.87451, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_uytjl"]
 gradient = SubResource("Gradient_kmqas")
@@ -25,7 +24,7 @@ orbit_velocity_min = 0.0
 orbit_velocity_max = 0.0
 linear_accel_min = -20.0
 linear_accel_max = -20.0
-scale_min = 0.35
-scale_max = 0.35
+scale_min = 0.25
+scale_max = 0.25
 color_ramp = SubResource("GradientTexture1D_uytjl")
-color_initial_ramp = SubResource("GradientTexture1D_fthly")
+color_initial_ramp = SubResource("GradientTexture1D_e1sku")

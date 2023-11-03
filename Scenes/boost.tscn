@@ -5,7 +5,7 @@
 [ext_resource type="Material" uid="uid://cpi5m5wcx55d3" path="res://Ressources/ParticleMaterial/Particle_Booster.tres" id="3_hqlbk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_03pr5"]
-radius = 55.0
+radius = 69.0
 
 [node name="Boost" type="Area2D"]
 script = ExtResource("1_vuwt3")
@@ -19,7 +19,7 @@ texture = ExtResource("1_hx8x7")
 shape = SubResource("CircleShape2D_03pr5")
 
 [node name="Particle_Boost" type="GPUParticles2D" parent="."]
-amount = 300
+amount = 250
 process_material = ExtResource("3_hqlbk")
 texture = ExtResource("1_hx8x7")
 lifetime = 5.0
