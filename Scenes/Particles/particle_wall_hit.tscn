@@ -3,7 +3,7 @@
 [ext_resource type="Material" uid="uid://cva3pw1mc2ty8" path="res://Ressources/ParticleMaterial/Particle_WallHit.tres" id="1_vjjq8"]
 
 [node name="Particle_WallHit" type="GPUParticles2D"]
-amount = 100
+amount = 200
 process_material = ExtResource("1_vjjq8")
 lifetime = 0.25
 one_shot = true
