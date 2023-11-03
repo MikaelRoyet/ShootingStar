@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://l1f815cxbibv"]
+
+[ext_resource type="Material" uid="uid://dcx4gphe53u78" path="res://Ressources/ParticleMaterial/Particle_GlassWall_Explosion.tres" id="1_uvl6p"]
+[ext_resource type="Texture2D" uid="uid://dil6lf31viqev" path="res://Sprites/carreblanc.png" id="2_uip4k"]
+[ext_resource type="Script" path="res://Scripts/particle_boost_explosion.gd" id="3_artoh"]
+
+[node name="Particle_Boost_explostion" type="GPUParticles2D"]
+amount = 1000
+process_material = ExtResource("1_uvl6p")
+texture = ExtResource("2_uip4k")
+lifetime = 5.0
+speed_scale = 5.0
+script = ExtResource("3_artoh")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

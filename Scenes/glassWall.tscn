@@ -1,22 +1,23 @@
 [gd_scene load_steps=4 format=3 uid="uid://xpkgkhxpthdb"]
 
 [ext_resource type="Script" path="res://Scripts/glassWall.gd" id="1_jqf8j"]
-[ext_resource type="Texture2D" uid="uid://con7j5hnr44f4" path="res://Sprites/TExtureTEst2.png" id="2_f3ly7"]
+[ext_resource type="Texture2D" uid="uid://dil6lf31viqev" path="res://Sprites/carreblanc.png" id="2_gbbrt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_km1vv"]
-size = Vector2(96, 20)
+size = Vector2(187, 32)
 
 [node name="GlassWall" type="Area2D"]
 script = ExtResource("1_jqf8j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -1)
 shape = SubResource("RectangleShape2D_km1vv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0, 0.733333, 0.937255, 1)
-self_modulate = Color(0, 0.733333, 0.937255, 1)
-position = Vector2(-4.70877e-06, 1.43051e-06)
-scale = Vector2(2.9375, 0.5625)
-texture = ExtResource("2_f3ly7")
+modulate = Color(0, 0.733333, 0.937255, 0.768627)
+self_modulate = Color(0, 0.733333, 0.937255, 0.768627)
+position = Vector2(-4.70877e-06, -1.5)
+scale = Vector2(2.9375, 0.515625)
+texture = ExtResource("2_gbbrt")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered" flags=18]
