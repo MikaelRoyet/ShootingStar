@@ -1,0 +1,54 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvv80ibnjne10"]
+
+[ext_resource type="Script" path="res://Scripts/UI.gd" id="1_yi5wr"]
+
+[node name="UI" type="Container"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yi5wr")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="LabelBoost" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Boost : "
+
+[node name="ValueBoost" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "0
+"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="LabelSpeed" type="Label" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Speed : "
+
+[node name="ValueSpeed" type="Label" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "0"
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LabelTimer" type="Label" parent="Panel/HBoxContainer"]
+layout_mode = 2
+text = "Timer : "
+
+[node name="ValueTimer" type="Label" parent="Panel/HBoxContainer"]
+layout_mode = 2
+text = "0
+"

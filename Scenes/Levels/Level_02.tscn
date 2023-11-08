@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://dqjye1tjbte50"]
 
 [ext_resource type="PackedScene" uid="uid://d12e7lbi56nd6" path="res://Scenes/Character.tscn" id="1_ye7wj"]
-[ext_resource type="Script" path="res://Scripts/UI.gd" id="2_erjvp"]
+[ext_resource type="PackedScene" uid="uid://bvv80ibnjne10" path="res://Scenes/UI/UI.tscn" id="2_hrm38"]
 [ext_resource type="Script" path="res://scripts/Wall.gd" id="3_cxsxj"]
 [ext_resource type="Texture2D" uid="uid://cnegffykdrncd" path="res://Sprites/LineTexture.png" id="4_4cb4i"]
 [ext_resource type="Curve2D" uid="uid://bv7bwlcphvrwk" path="res://Ressources/Curves/Level_02_Curve.tres" id="4_p6qqc"]
@@ -24,38 +24,7 @@ position = Vector2(614, -260)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="UI" type="Panel" parent="CanvasLayer"]
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("2_erjvp")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI/VBoxContainer"]
-layout_mode = 2
-
-[node name="LabelBoost" type="Label" parent="CanvasLayer/UI/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-text = "Boost : "
-
-[node name="ValueBoost" type="Label" parent="CanvasLayer/UI/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-text = "0
-"
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/UI/VBoxContainer"]
-layout_mode = 2
-
-[node name="LabelSpeed" type="Label" parent="CanvasLayer/UI/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-text = "Speed : "
-
-[node name="ValueSpeed" type="Label" parent="CanvasLayer/UI/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-text = "0"
+[node name="UI" parent="CanvasLayer" instance=ExtResource("2_hrm38")]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 script = ExtResource("3_cxsxj")
