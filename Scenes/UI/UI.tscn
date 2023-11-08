@@ -2,16 +2,24 @@
 
 [ext_resource type="Script" path="res://Scripts/UI.gd" id="1_yi5wr"]
 
-[node name="UI" type="Container"]
+[node name="UI" type="Control"]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -2.0
+offset_right = 1.0
+offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
 script = ExtResource("1_yi5wr")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -37,12 +45,25 @@ layout_mode = 2
 text = "0"
 
 [node name="Panel" type="Panel" parent="."]
-layout_mode = 2
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 507.0
+offset_right = -788.0
+offset_bottom = 77.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -99.0
+offset_right = 101.0
+offset_bottom = 78.0
+grow_horizontal = 2
 
 [node name="LabelTimer" type="Label" parent="Panel/HBoxContainer"]
 layout_mode = 2

@@ -1,4 +1,4 @@
-extends Container
+extends Control
 
 
 var valueBoost
