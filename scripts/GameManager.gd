@@ -56,7 +56,6 @@ func load_level_data():
 	# the object it represents.
 	var file = FileAccess.open("res://data/level_data.json", FileAccess.READ)
 	var data = file.get_as_text(false)
-	print(data)
 	var json = JSON.new()
 	var error = json.parse(data)
 	if error == OK:

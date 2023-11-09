@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dilkqt3j8sb3a"]
+[gd_scene load_steps=3 format=3 uid="uid://dilkqt3j8sb3a"]
 
 [ext_resource type="Script" path="res://Scripts/SceneSwitcher.gd" id="1_8tube"]
+[ext_resource type="PackedScene" uid="uid://biy1beojexsw2" path="res://Scenes/Levels/MainMenu.tscn" id="2_tisg2"]
 
 [node name="SceneSwitcher" type="Node"]
 script = ExtResource("1_8tube")
@@ -13,5 +14,7 @@ offset_bottom = 40.0
 color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
+
+[node name="Control" parent="." instance=ExtResource("2_tisg2")]
 
 [connection signal="animation_finished" from="CanvasLayer/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
