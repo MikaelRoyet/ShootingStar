@@ -11,8 +11,14 @@ var timeLevelStart
 var time = 0
 var isRunning = false
 
+#Data
+
+var levelDataDict
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	load_level_data()
 	isRunning = true
 
 
@@ -37,3 +43,24 @@ func sendTimeToUI(delta):
 	
 func endLevel():
 	isRunning = false
+	
+	
+#Load Data
+
+func load_level_data():
+	if not FileAccess.file_exists("res://data/level_data.json"):
+		print("Error loading level_data.json")
+		return # Error! We don't have a save to load.
+
+	# Load the file line by line and process that dictionary to restore
+	# the object it represents.
+	var file = FileAccess.open("res://data/level_data.json", FileAccess.READ)
+	var data = file.get_as_text(false)
+	print(data)
+	var json = JSON.new()
+	var error = json.parse(data)
+	if error == OK:
+		levelDataDict = json.data
+		print(levelDataDict)
+	else:
+		print("Error parsing json")
