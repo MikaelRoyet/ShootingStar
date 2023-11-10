@@ -15,6 +15,6 @@ color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
 
-[node name="Control" parent="." instance=ExtResource("2_tisg2")]
+[node name="MainMenu" parent="." instance=ExtResource("2_tisg2")]
 
 [connection signal="animation_finished" from="CanvasLayer/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
