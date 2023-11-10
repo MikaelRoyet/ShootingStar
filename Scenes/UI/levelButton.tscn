@@ -10,5 +10,5 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_6kp0v")
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="Button" parent="." groups=["LevelsButtons"]]
 layout_mode = 2

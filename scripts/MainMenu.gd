@@ -16,7 +16,7 @@ func _ready():
 	$MainMenuContainer/PlayButton.grab_focus()
 	#GameManager.setLevel(self)
 	for button in get_tree().get_nodes_in_group("LevelsButtons"):
-		button.gui_input.connect("pressed", self, "StartLevel", [button])
+		button.pressed.connect(func():StartLevel(button))
 	
 
 

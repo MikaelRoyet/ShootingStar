@@ -1,5 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://dqjye1tjbte50"]
+[gd_scene load_steps=14 format=3 uid="uid://dqjye1tjbte50"]
 
+[ext_resource type="Script" path="res://Scripts/Level.gd" id="1_6t0o5"]
 [ext_resource type="PackedScene" uid="uid://d12e7lbi56nd6" path="res://Scenes/Character.tscn" id="1_ye7wj"]
 [ext_resource type="PackedScene" uid="uid://bvv80ibnjne10" path="res://Scenes/UI/UI.tscn" id="2_hrm38"]
 [ext_resource type="Script" path="res://scripts/Wall.gd" id="3_cxsxj"]
@@ -17,7 +18,9 @@ closed = false
 [sub_resource type="Environment" id="Environment_3lrq1"]
 background_mode = 1
 
-[node name="Node2D" type="Node2D"]
+[node name="Level_02" type="Node2D"]
+script = ExtResource("1_6t0o5")
+level_name = "Level_02"
 
 [node name="Character" parent="." instance=ExtResource("1_ye7wj")]
 position = Vector2(614, -260)

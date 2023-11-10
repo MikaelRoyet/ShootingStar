@@ -1,19 +1,19 @@
-{"Level_0_1":	{
+{"Level_01":	{
 	"medal": ["30000","30000","30000","30000"],
 	"name": "Fisrt contact",
-	"nextLevel": "Level_0_2",
+	"nextLevel": "Level_02",
   },
-"Level_0_2":	{
+"Level_02":	{
 	"medal": ["30000","30000","30000","30000"],
 	"name": "Fisrt contact",
-	"nextLevel": "Level_0_3",
+	"nextLevel": "Level_03",
   },
-"Level_0_3":	{
+"Level_03":	{
 	"medal": ["30000","30000","30000","30000"],
 	"name": "Fisrt contact",
-	"nextLevel": "Level_0_3",
+	"nextLevel": "Level_04",
   },
-"Level_0_4":	{
+"Level_04":	{
 	"medal": ["30000","30000","30000","30000"],
 	"name": "Fisrt contact",
 	"nextLevel": "Level_0_4",
