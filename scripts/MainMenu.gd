@@ -58,10 +58,6 @@ func _on_MuteMusic_pressed():
 	pass # Replace with function body.
 
 
-
-func _on_SceneSwitcher_level_changed(level_name):
-	pass # Replace with function body.
-
 func generateLevels():
 
 	for level in levelDataDict:

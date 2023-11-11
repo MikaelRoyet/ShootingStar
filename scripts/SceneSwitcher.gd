@@ -8,7 +8,7 @@ var next_level = null
 
 func _ready():
 	current_level = $MainMenu
-	anim = $CanvasLayer/AnimationPlayer
+	anim = $AnimationPlayer
 	canvas = $CanvasLayer
 	current_level.connect("level_changed",Callable(self, "handle_level_changed"))
 	
