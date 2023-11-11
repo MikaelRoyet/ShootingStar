@@ -1,0 +1,63 @@
+[gd_scene load_steps=2 format=3 uid="uid://b276oobua66h3"]
+
+[ext_resource type="Script" path="res://Scripts/InGameMenu.gd" id="1_kpgc2"]
+
+[node name="InGameMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kpgc2")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 529.0
+offset_top = 173.0
+offset_right = 1035.0
+offset_bottom = 704.0
+
+[node name="ResumeButton" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 35.0
+offset_top = -77.0
+offset_right = 157.0
+offset_bottom = -36.0
+grow_vertical = 0
+text = "Resume"
+
+[node name="QuitButton" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -173.0
+offset_top = -74.0
+offset_right = -50.0
+offset_bottom = -35.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/outline_size = 0
+text = "Quit"
+
+[node name="NameOfLevel" type="RichTextLabel" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -183.0
+offset_top = 40.0
+offset_right = 199.0
+offset_bottom = 80.0
+grow_horizontal = 2
+bbcode_enabled = true
+text = "[center]Level[/center]"
+
+[connection signal="pressed" from="Panel/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="Panel/QuitButton" to="." method="_on_quit_button_pressed"]

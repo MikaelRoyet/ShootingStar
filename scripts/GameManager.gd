@@ -11,6 +11,9 @@ var timeLevelStart
 var time = 0
 var isRunning = false
 
+var inGameMenu
+var isPause = false
+
 #Data
 
 var levelDataDict
@@ -45,6 +48,18 @@ func endLevel():
 	isRunning = false
 	
 	
+
+#UI functions
+func pause():
+	print("pause")
+	inGameMenu.visible = true
+	isPause = true
+
+func unpause():
+	print("unpause")
+	inGameMenu.visible = false
+	isPause = false
+
 #Load Data
 
 func load_level_data():

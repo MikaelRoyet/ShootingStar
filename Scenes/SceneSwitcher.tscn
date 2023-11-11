@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dilkqt3j8sb3a"]
+[gd_scene load_steps=7 format=3 uid="uid://dilkqt3j8sb3a"]
 
 [ext_resource type="Script" path="res://Scripts/SceneSwitcher.gd" id="1_8tube"]
 [ext_resource type="PackedScene" uid="uid://biy1beojexsw2" path="res://Scenes/Levels/MainMenu.tscn" id="2_tisg2"]
+[ext_resource type="PackedScene" uid="uid://b276oobua66h3" path="res://Scenes/UI/InGameMenu.tscn" id="3_xsyx2"]
 
 [sub_resource type="Animation" id="Animation_tlvwe"]
 resource_name = "fade_in"
@@ -44,6 +45,8 @@ script = ExtResource("1_8tube")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
+
+[node name="InGameMenu" parent="CanvasLayer" instance=ExtResource("3_xsyx2")]
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 anchors_preset = 15

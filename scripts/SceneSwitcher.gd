@@ -3,6 +3,7 @@ extends Node
 var current_level
 var anim
 var canvas
+var inGameMenu
 
 var next_level = null
 
@@ -10,7 +11,10 @@ func _ready():
 	current_level = $MainMenu
 	anim = $AnimationPlayer
 	canvas = $CanvasLayer
+	inGameMenu = $CanvasLayer/InGameMenu
 	current_level.connect("level_changed",Callable(self, "handle_level_changed"))
+	inGameMenu.visible = false
+	GameManager.inGameMenu = inGameMenu
 	
 func handle_level_changed(level_name_to_load: String):
 	print("load : " + level_name_to_load)
