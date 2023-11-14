@@ -10,8 +10,8 @@ var next_level = null
 func _ready():
 	current_level = $MainMenu
 	anim = $AnimationPlayer
-	canvas = $CanvasLayer
-	inGameMenu = $CanvasLayer/InGameMenu
+	canvas = $CanvasLayerTransition
+	inGameMenu = $CanvasLayerInGameMenu/InGameMenu
 	current_level.connect("level_changed",Callable(self, "handle_level_changed"))
 	inGameMenu.visible = false
 	GameManager.inGameMenu = inGameMenu
@@ -25,8 +25,9 @@ func handle_level_changed(level_name_to_load: String):
 		next_level = load("res://Scenes/Levels/MainMenu.tscn").instantiate()
 		
 	print("nextlevel : " + level_path)
-	anim.play("fade_in")
 	canvas.layer = 5
+	anim.play("fade_in")
+
 
 
 

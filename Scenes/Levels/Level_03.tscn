@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://bdccrxd8jgha2"]
+[gd_scene load_steps=15 format=3 uid="uid://bdccrxd8jgha2"]
 
 [ext_resource type="PackedScene" uid="uid://d12e7lbi56nd6" path="res://Scenes/Character.tscn" id="1_l2lwx"]
+[ext_resource type="Script" path="res://Scripts/Level.gd" id="1_u00og"]
 [ext_resource type="Script" path="res://Scripts/UI.gd" id="2_j0cqs"]
 [ext_resource type="Script" path="res://scripts/Wall.gd" id="3_x26rm"]
 [ext_resource type="Curve2D" uid="uid://cd4flt08eejm1" path="res://Ressources/Curves/Level_03_Curve.tres" id="4_wylkj"]
@@ -18,7 +19,9 @@ closed = false
 [sub_resource type="Environment" id="Environment_3lrq1"]
 background_mode = 1
 
-[node name="Node2D" type="Node2D"]
+[node name="Level_03" type="Node2D"]
+script = ExtResource("1_u00og")
+level_name = "level_03"
 
 [node name="Character" parent="." instance=ExtResource("1_l2lwx")]
 position = Vector2(627, -209)
