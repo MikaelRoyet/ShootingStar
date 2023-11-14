@@ -10,6 +10,7 @@ process_material = ExtResource("1_uvl6p")
 texture = ExtResource("2_uip4k")
 lifetime = 5.0
 speed_scale = 5.0
+explosiveness = 0.75
 script = ExtResource("3_artoh")
 
 [node name="Timer" type="Timer" parent="."]
