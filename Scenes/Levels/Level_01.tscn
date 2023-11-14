@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cf683jr0qlqpq"]
+[gd_scene load_steps=13 format=3 uid="uid://cf683jr0qlqpq"]
 
 [ext_resource type="PackedScene" uid="uid://d12e7lbi56nd6" path="res://Scenes/Character.tscn" id="1_e2d64"]
 [ext_resource type="Script" path="res://Scripts/Level.gd" id="1_r7k0x"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cnegffykdrncd" path="res://Sprites/LineTexture.png" id="5_7qie7"]
 [ext_resource type="PackedScene" uid="uid://c1onaf1t0uxcl" path="res://Scenes/FinishLine.tscn" id="6_luout"]
 [ext_resource type="PackedScene" uid="uid://g6nj1og7u255" path="res://Scenes/miniBoost.tscn" id="7_gxuk0"]
+[ext_resource type="Texture2D" uid="uid://bb54sfw3fhkru" path="res://Sprites/Background/pngwing.png" id="10_2y4ha"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_cctwu"]
 closed = false
@@ -45,6 +46,10 @@ texture_mode = 1
 [node name="LightOccluder2D" type="LightOccluder2D" parent="StaticBody2D"]
 occluder = SubResource("OccluderPolygon2D_cctwu")
 sdf_collision = false
+
+[node name="PolygonRoadBG" type="Polygon2D" parent="StaticBody2D"]
+z_index = -10
+color = Color(0, 0, 0, 1)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_3lrq1")
@@ -120,3 +125,15 @@ position = Vector2(10086, -2730)
 
 [node name="MiniBoost9" parent="Boost3" instance=ExtResource("7_gxuk0")]
 position = Vector2(9723, -3074)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_base_scale = Vector2(0.5, 0.5)
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+scale = Vector2(10, 10)
+
+[node name="BG" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture_repeat = 2
+position = Vector2(754, -308)
+scale = Vector2(2, 2)
+texture = ExtResource("10_2y4ha")
