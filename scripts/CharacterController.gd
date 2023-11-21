@@ -16,7 +16,7 @@ var spriteCharacter
 #Speed
 var speed = CONST_SPEED
 var speedToGo = CONST_SPEED
-const CONST_SPEED_INCR = 20
+const CONST_SPEED_INCR = 50
 const CONST_SPEED = 1000.0
 const CONST_SPEED_MULTI = 2
 const CONST_SPEED_MULTI_MINI = 1.3
@@ -35,7 +35,7 @@ var isBullletHit = false
 
 #Boost
 var CONST_NB_BOOST_MAX = 5
-var nb_boost = CONST_NB_BOOST_MAX
+var nb_boost = 1
 
 #Shield
 const CONST_CD_SHIELD = 5
@@ -129,7 +129,9 @@ func hitWall(collisionParam):
 	camera.applyShake(computeShakeStrength(), 5.0)
 	var instanceParticle = wallCollisionParticles.instantiate()
 	instanceParticle.position = global_position
+	instanceParticle.emitting = true
 	get_tree().current_scene.add_child(instanceParticle)
+	
 	if(collision.get_collider().is_in_group('Bumper')):
 		velocity = velocity.bounce(collisionParam.get_normal())
 		set_speed(CONST_SPEED_MULTI)
@@ -143,12 +145,13 @@ func hitWall(collisionParam):
 		
 		isWallHit = true
 
-func hitGlassWall():
+func hitGlassWall(isBoostPlus : bool):
 	camera.applyShake(computeShakeStrength(), 5.0)
 	if(speed < 1200 ):
 		set_speed(CONST_SPEED_SLOW)
 		durationWallHitTimer.start(CONST_DURATION_WALLHIT)
-		
+	elif isBoostPlus:
+		nb_boost += 1
 
 
 func set_speed(multiplicateur):

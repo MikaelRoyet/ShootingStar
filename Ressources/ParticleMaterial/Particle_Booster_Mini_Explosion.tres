@@ -28,3 +28,7 @@ scale_min = 0.25
 scale_max = 0.25
 color_ramp = SubResource("GradientTexture1D_uytjl")
 color_initial_ramp = SubResource("GradientTexture1D_e1sku")
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.0
+collision_use_scale = true

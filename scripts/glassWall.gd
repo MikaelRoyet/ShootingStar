@@ -3,6 +3,7 @@ extends Area2D
 
 var particleBoostExplosionScene
 
+@export var isBoostPlus = false
 
 
 func _ready():
@@ -16,7 +17,7 @@ func _process(delta):
 
 func _on_body_entered(body):
 	if(body.is_in_group('Player')):
-		body.hitGlassWall()
+		body.hitGlassWall(isBoostPlus)
 		
 		var instanceParticle = particleBoostExplosionScene.instantiate()
 		instanceParticle.position = global_position

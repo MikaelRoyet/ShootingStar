@@ -148,11 +148,13 @@ scale = Vector2(2, 2)
 [node name="GlassWall3" parent="." instance=ExtResource("11_4ifwj")]
 position = Vector2(3345, -750)
 scale = Vector2(2, 2)
+isBoostPlus = true
 
 [node name="GlassWall4" parent="." instance=ExtResource("11_4ifwj")]
 position = Vector2(4966, 324)
 rotation = 1.03181
 scale = Vector2(2, 2)
+isBoostPlus = true
 
 [node name="GlassWall5" parent="." instance=ExtResource("11_4ifwj")]
 position = Vector2(4779, 448)
@@ -168,6 +170,7 @@ scale = Vector2(2, 2)
 position = Vector2(8729, 500)
 rotation = -0.66627
 scale = Vector2(2, 2)
+isBoostPlus = true
 
 [node name="GlassWall11" parent="." instance=ExtResource("11_4ifwj")]
 position = Vector2(8932, 747)
@@ -193,6 +196,7 @@ scale = Vector2(2.7, 2.7)
 position = Vector2(5564, 1112)
 rotation = 0.547736
 scale = Vector2(2.8, 2.8)
+isBoostPlus = true
 
 [node name="FinishLine2" parent="." instance=ExtResource("11_lrrn6")]
 position = Vector2(14240, -2509)

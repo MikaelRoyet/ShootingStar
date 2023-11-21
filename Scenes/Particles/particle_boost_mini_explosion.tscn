@@ -9,7 +9,7 @@ amount = 700
 process_material = ExtResource("1_eeqnj")
 texture = ExtResource("2_svg6p")
 lifetime = 5.0
-speed_scale = 5.0
+speed_scale = 10.0
 explosiveness = 0.9
 script = ExtResource("3_x23mp")
 
