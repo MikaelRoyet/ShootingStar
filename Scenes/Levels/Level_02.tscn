@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dqjye1tjbte50"]
+[gd_scene load_steps=15 format=3 uid="uid://dqjye1tjbte50"]
 
 [ext_resource type="Script" path="res://Scripts/Level.gd" id="1_6t0o5"]
 [ext_resource type="PackedScene" uid="uid://d12e7lbi56nd6" path="res://Scenes/Character.tscn" id="1_ye7wj"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://g6nj1og7u255" path="res://Scenes/miniBoost.tscn" id="8_lh1xj"]
 [ext_resource type="PackedScene" uid="uid://b6eu7mmlxb1mi" path="res://Scenes/boost.tscn" id="9_oa65b"]
 [ext_resource type="PackedScene" uid="uid://c1onaf1t0uxcl" path="res://Scenes/FinishLine.tscn" id="10_w5rmf"]
+[ext_resource type="PackedScene" uid="uid://d0dmp81ago8b8" path="res://Scenes/parallax_background.tscn" id="12_bi70k"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_cctwu"]
 closed = false
@@ -29,45 +30,53 @@ position = Vector2(614, -260)
 
 [node name="UI" parent="CanvasLayer" instance=ExtResource("2_hrm38")]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="RoadLevel2" type="StaticBody2D" parent="."]
 script = ExtResource("3_cxsxj")
 
-[node name="CollisionPoly" type="CollisionPolygon2D" parent="StaticBody2D"]
+[node name="CollisionPoly" type="CollisionPolygon2D" parent="RoadLevel2"]
 build_mode = 1
 one_way_collision_margin = 20.0
 
-[node name="Path2D" type="Path2D" parent="StaticBody2D"]
+[node name="Path2D" type="Path2D" parent="RoadLevel2"]
 curve = ExtResource("4_p6qqc")
 
-[node name="Line2D" type="Line2D" parent="StaticBody2D"]
+[node name="Line2D" type="Line2D" parent="RoadLevel2"]
 texture_repeat = 2
 width = 15.0
 texture = ExtResource("4_4cb4i")
 texture_mode = 1
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="StaticBody2D"]
+[node name="LightOccluder2D" type="LightOccluder2D" parent="RoadLevel2"]
 occluder = SubResource("OccluderPolygon2D_cctwu")
 sdf_collision = false
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+[node name="PolygonRoadBG" type="Polygon2D" parent="RoadLevel2"]
+z_index = -10
+color = Color(0, 0, 0, 1)
+
+[node name="Circle1Level2" type="StaticBody2D" parent="."]
 script = ExtResource("3_cxsxj")
 
-[node name="CollisionPoly" type="CollisionPolygon2D" parent="StaticBody2D2"]
+[node name="CollisionPoly" type="CollisionPolygon2D" parent="Circle1Level2"]
 build_mode = 1
 one_way_collision_margin = 20.0
 
-[node name="Path2D" type="Path2D" parent="StaticBody2D2"]
+[node name="Path2D" type="Path2D" parent="Circle1Level2"]
 curve = ExtResource("6_a8v3g")
 
-[node name="Line2D" type="Line2D" parent="StaticBody2D2"]
+[node name="Line2D" type="Line2D" parent="Circle1Level2"]
 texture_repeat = 2
 width = 15.0
 texture = ExtResource("4_4cb4i")
 texture_mode = 1
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="StaticBody2D2"]
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Circle1Level2"]
 occluder = SubResource("OccluderPolygon2D_cctwu")
 sdf_collision = false
+
+[node name="PolygonRoadBG" type="Polygon2D" parent="Circle1Level2"]
+z_index = -10
+color = Color(0, 0, 0, 1)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_3lrq1")
@@ -139,3 +148,5 @@ position = Vector2(14273, -1910)
 [node name="FinishLine" parent="." instance=ExtResource("10_w5rmf")]
 position = Vector2(20105, 2534)
 rotation = 1.2762
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("12_bi70k")]

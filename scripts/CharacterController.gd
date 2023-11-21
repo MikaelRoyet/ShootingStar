@@ -78,17 +78,12 @@ func _ready():
 	camera = $Camera2D
 	spriteCharacter.modulate = Color(255,255,255,255)
 	GameManager.sendBoostToUI(nb_boost)
+	GameManager.player = self
 
 
 func _process(delta):
 	
-	if(Input.is_action_just_pressed("Pause")):
-		print("action pause")
-		if(GameManager.isPause):
-			GameManager.unpause()
-		else:
-			GameManager.pause()
-	
+
 	if(Input.is_action_just_pressed("shield") && isControllable):
 		shield()
 		

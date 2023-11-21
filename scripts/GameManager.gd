@@ -10,6 +10,7 @@ var level
 var timeLevelStart
 var time = 0
 var isRunning = false
+var player
 
 var inGameMenu
 var isPause = false
@@ -23,11 +24,13 @@ var levelDataDict
 func _ready():
 	load_level_data()
 	isRunning = true
+	
 
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	
 	if(isRunning):
 		sendTimeToUI(delta)
 

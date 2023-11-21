@@ -1,19 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://cf683jr0qlqpq"]
+[gd_scene load_steps=10 format=3 uid="uid://cf683jr0qlqpq"]
 
 [ext_resource type="PackedScene" uid="uid://d12e7lbi56nd6" path="res://Scenes/Character.tscn" id="1_e2d64"]
 [ext_resource type="Script" path="res://Scripts/Level.gd" id="1_r7k0x"]
 [ext_resource type="PackedScene" uid="uid://bvv80ibnjne10" path="res://Scenes/UI/UI.tscn" id="2_oqslp"]
 [ext_resource type="PackedScene" uid="uid://b6eu7mmlxb1mi" path="res://Scenes/boost.tscn" id="3_8nq6v"]
-[ext_resource type="Curve2D" uid="uid://hptkk0u8lmhx" path="res://Ressources/Curves/Level_01_Curve.tres" id="4_467if"]
-[ext_resource type="Script" path="res://scripts/Wall.gd" id="4_bffye"]
-[ext_resource type="Texture2D" uid="uid://cnegffykdrncd" path="res://Sprites/LineTexture.png" id="5_7qie7"]
 [ext_resource type="PackedScene" uid="uid://c1onaf1t0uxcl" path="res://Scenes/FinishLine.tscn" id="6_luout"]
 [ext_resource type="PackedScene" uid="uid://g6nj1og7u255" path="res://Scenes/miniBoost.tscn" id="7_gxuk0"]
-[ext_resource type="Script" path="res://Scripts/ParallaxBackgroundTiling.gd" id="10_xr84n"]
-[ext_resource type="Texture2D" uid="uid://ty7audqjw6kr" path="res://Sprites/Background/teststarsky.png" id="11_y5tt3"]
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_cctwu"]
-closed = false
+[ext_resource type="PackedScene" uid="uid://bb3a4xjl6uwxp" path="res://Scenes/Road/RoadLevel1.tscn" id="8_o0jm2"]
+[ext_resource type="PackedScene" uid="uid://d0dmp81ago8b8" path="res://Scenes/parallax_background.tscn" id="10_oya7o"]
 
 [sub_resource type="Environment" id="Environment_3lrq1"]
 background_mode = 1
@@ -28,29 +22,6 @@ position = Vector2(734, -320)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="UI" parent="CanvasLayer" instance=ExtResource("2_oqslp")]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-script = ExtResource("4_bffye")
-
-[node name="CollisionPoly" type="CollisionPolygon2D" parent="StaticBody2D"]
-build_mode = 1
-
-[node name="Path2D" type="Path2D" parent="StaticBody2D"]
-curve = ExtResource("4_467if")
-
-[node name="Line2D" type="Line2D" parent="StaticBody2D"]
-texture_repeat = 2
-width = 15.0
-texture = ExtResource("5_7qie7")
-texture_mode = 1
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="StaticBody2D"]
-occluder = SubResource("OccluderPolygon2D_cctwu")
-sdf_collision = false
-
-[node name="PolygonRoadBG" type="Polygon2D" parent="StaticBody2D"]
-z_index = -10
-color = Color(0, 0, 0, 1)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_3lrq1")
@@ -127,13 +98,6 @@ position = Vector2(10086, -2730)
 [node name="MiniBoost9" parent="Boost3" instance=ExtResource("7_gxuk0")]
 position = Vector2(9723, -3074)
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-scroll_base_scale = Vector2(0.25, 0.25)
-script = ExtResource("10_xr84n")
+[node name="ParallaxBackground" parent="." instance=ExtResource("10_oya7o")]
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_mirroring = Vector2(3000, 3000)
-
-[node name="BG" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-texture_repeat = 2
-texture = ExtResource("11_y5tt3")
+[node name="RoadLevel1" parent="." instance=ExtResource("8_o0jm2")]

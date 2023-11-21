@@ -17,6 +17,7 @@ _data = {
 }
 
 [node name="SceneSwitcher" type="Node"]
+process_mode = 3
 script = ExtResource("1_8tube")
 
 [node name="CanvasLayerInGameMenu" type="CanvasLayer" parent="."]

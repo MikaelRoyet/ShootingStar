@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0dmp81ago8b8"]
+
+[ext_resource type="Script" path="res://Scripts/ParallaxBackgroundTiling.gd" id="1_jmka7"]
+[ext_resource type="Texture2D" uid="uid://ty7audqjw6kr" path="res://Sprites/Background/teststarsky.png" id="2_087lh"]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+scroll_base_scale = Vector2(0.25, 0.25)
+script = ExtResource("1_jmka7")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(3000, 3000)
+
+[node name="BG" type="Sprite2D" parent="ParallaxLayer"]
+texture_repeat = 2
+texture = ExtResource("2_087lh")

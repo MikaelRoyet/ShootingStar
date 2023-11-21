@@ -53,6 +53,10 @@ texture_mode = 1
 occluder = SubResource("OccluderPolygon2D_cctwu")
 sdf_collision = false
 
+[node name="PolygonRoadBG" type="Polygon2D" parent="StaticBody2D"]
+z_index = -10
+color = Color(0.0901961, 0.0901961, 0.0901961, 1)
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_3lrq1")
 

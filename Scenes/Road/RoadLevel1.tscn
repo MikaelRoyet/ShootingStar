@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://bb3a4xjl6uwxp"]
+
+[ext_resource type="Script" path="res://scripts/Wall.gd" id="1_oerpa"]
+[ext_resource type="Curve2D" uid="uid://hptkk0u8lmhx" path="res://Ressources/Curves/Level_01_Curve.tres" id="2_hrur7"]
+[ext_resource type="Texture2D" uid="uid://cnegffykdrncd" path="res://Sprites/LineTexture.png" id="3_6mvds"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_cctwu"]
+closed = false
+
+[node name="RoadLevel1" type="StaticBody2D"]
+script = ExtResource("1_oerpa")
+
+[node name="CollisionPoly" type="CollisionPolygon2D" parent="."]
+build_mode = 1
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = ExtResource("2_hrur7")
+
+[node name="Line2D" type="Line2D" parent="."]
+texture_repeat = 2
+width = 15.0
+texture = ExtResource("3_6mvds")
+texture_mode = 1
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_cctwu")
+sdf_collision = false
+
+[node name="PolygonRoadBG" type="Polygon2D" parent="."]
+z_index = -10
+color = Color(0, 0, 0, 1)

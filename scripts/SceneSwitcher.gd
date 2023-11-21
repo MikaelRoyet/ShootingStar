@@ -16,6 +16,18 @@ func _ready():
 	inGameMenu.visible = false
 	GameManager.inGameMenu = inGameMenu
 	
+func _process(delta):
+	if(Input.is_action_just_pressed("Pause")):
+		if(GameManager.isPause):
+			print("unpause")
+			GameManager.unpause()
+			get_tree().paused = false
+		else:
+			print("pause")
+			GameManager.pause()
+			get_tree().paused = true
+
+	
 func handle_level_changed(level_name_to_load: String):
 	print("load : " + level_name_to_load)
 	var level_path = "res://Scenes/Levels/" + level_name_to_load + ".tscn"
