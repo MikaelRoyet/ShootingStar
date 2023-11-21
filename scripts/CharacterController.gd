@@ -145,13 +145,15 @@ func hitWall(collisionParam):
 		
 		isWallHit = true
 
-func hitGlassWall(isBoostPlus : bool):
+func hitGlassWall(isBoostPlus : bool) -> int:
 	camera.applyShake(computeShakeStrength(), 5.0)
 	if(speed < 1200 ):
 		set_speed(CONST_SPEED_SLOW)
 		durationWallHitTimer.start(CONST_DURATION_WALLHIT)
 	elif isBoostPlus:
 		nb_boost += 1
+		
+	return speed
 
 
 func set_speed(multiplicateur):
