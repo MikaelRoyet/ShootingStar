@@ -19,6 +19,10 @@ var isPause = false
 
 var levelDataDict
 
+#Audio
+var musicPlayer : AudioStreamPlayer
+var menuMusic = load("res://Audio/Music/chiptunejsptrop.wav")
+var levelMusic = load("res://Audio/Music/chiptunejsptrop.wav")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -89,3 +93,19 @@ func load_level_data():
 		print(levelDataDict)
 	else:
 		print("Error parsing json")
+
+#Audio
+
+func changeMusicToLevel():
+	musicPlayer.stream = levelMusic
+	musicPlayer.play()
+
+func changeMusicToMenu():
+	musicPlayer.stream = menuMusic
+	musicPlayer.play()
+
+func muteMusic():
+	musicPlayer.stream_paused = true
+	
+func unmuteMusic():
+	musicPlayer.stream_paused = false

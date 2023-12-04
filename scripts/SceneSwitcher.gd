@@ -15,6 +15,8 @@ func _ready():
 	current_level.connect("level_changed",Callable(self, "handle_level_changed"))
 	inGameMenu.visible = false
 	GameManager.inGameMenu = inGameMenu
+	GameManager.musicPlayer = $MusicPlayer
+	
 	
 func _process(delta):
 	if Input.is_action_just_pressed("Pause"):
