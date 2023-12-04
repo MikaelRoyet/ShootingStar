@@ -39,7 +39,8 @@ func handle_level_changed(level_name_to_load: String):
 		next_level = load("res://Scenes/Levels/MainMenu.tscn").instantiate()
 		
 	print("nextlevel : " + level_path)
-	canvas.layer = 5
+	canvas.layer = 10
+	print("ON COMMENCE LA")
 	anim.play("fade_in")
 
 
@@ -56,4 +57,5 @@ func _on_animation_player_animation_finished(anim_name):
 			anim.play("fade_out")
 
 		"fade_out":
+			print("ON FINI LA")
 			canvas.layer = -1
