@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgvy30thps73w"]
+
+[ext_resource type="Texture2D" uid="uid://l0vb1d4smbcs" path="res://Sprites/Player.png" id="1_82wdr"]
+
+[node name="TextureRect" type="TextureRect"]
+texture = ExtResource("1_82wdr")
+expand_mode = 3

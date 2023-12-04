@@ -35,7 +35,7 @@ var isBullletHit = false
 
 #Boost
 var CONST_NB_BOOST_MAX = 5
-var nb_boost = 1
+var nb_boost = 5
 
 #Shield
 const CONST_CD_SHIELD = 5
