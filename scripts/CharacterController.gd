@@ -191,6 +191,7 @@ func hit():
 		
 		if(nb_boost < CONST_NB_BOOST_MAX):
 			nb_boost += 1
+			GameManager.sendBoostToUI(nb_boost)
 			
 		GameManager.sendBoostToUI(nb_boost)
 		shieldCdTimer.stop()

@@ -1,37 +1,35 @@
-[gd_scene load_steps=7 format=3 uid="uid://corq0qf430ixn"]
+[gd_scene load_steps=5 format=3 uid="uid://corq0qf430ixn"]
 
 [ext_resource type="Script" path="res://Scripts/Bullet.gd" id="1_fc6ep"]
 [ext_resource type="Texture2D" uid="uid://dnd73u4db6p1t" path="res://Sprites/Trail.png" id="2_jjphd"]
-[ext_resource type="Script" path="res://scripts/TrailCharacter.gd" id="3_rfmwv"]
+
+[sub_resource type="Curve2D" id="Curve2D_s6ogx"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 88, -11, 38.0976, -48.4157, -38.0976, 48.4157, 90, 80, 41.2724, 24.6047, -41.2724, -24.6047, -49, 116, -56.3527, 76.9889, 56.3527, -76.9889, -68, -14, 0, 0, 0, 0, 87, -12)
+}
+point_count = 5
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hbbfb"]
 radius = 32.0
 
-[sub_resource type="Curve" id="Curve_3i8q6"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.997512, 0), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="Gradient" id="Gradient_cbiph"]
-offsets = PackedFloat32Array(0, 0.607242)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
-
-[node name="Bullet" type="Area2D"]
+[node name="Bullet" type="Node2D"]
 script = ExtResource("1_fc6ep")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(7, -29)
+curve = SubResource("Curve2D_s6ogx")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(88, -11)
+rotation = 1.54882
+
+[node name="BulletArea" type="Area2D" parent="Path2D/PathFollow2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/BulletArea"]
 shape = SubResource("CircleShape2D_hbbfb")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="Path2D/PathFollow2D/BulletArea"]
 modulate = Color(1, 0.443137, 0.0823529, 1)
 texture = ExtResource("2_jjphd")
 
-[node name="Line2D" type="Line2D" parent="."]
-z_index = -1
-width = 32.0
-width_curve = SubResource("Curve_3i8q6")
-default_color = Color(1, 0.00392157, 0.00392157, 0.00392157)
-gradient = SubResource("Gradient_cbiph")
-script = ExtResource("3_rfmwv")
-MAX_LENGTH = 25
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="Path2D/PathFollow2D/BulletArea" to="." method="_on_bullet_area_body_entered"]
