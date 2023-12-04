@@ -1,16 +1,19 @@
-[gd_scene load_steps=14 format=3 uid="uid://duuedqs7ipo73"]
+[gd_scene load_steps=12 format=3 uid="uid://duuedqs7ipo73"]
 
 [ext_resource type="Script" path="res://Scripts/Level.gd" id="1_mphfx"]
 [ext_resource type="PackedScene" uid="uid://d12e7lbi56nd6" path="res://Scenes/Character.tscn" id="2_rpwfu"]
 [ext_resource type="PackedScene" uid="uid://bvv80ibnjne10" path="res://Scenes/UI/UI.tscn" id="3_xs2n6"]
 [ext_resource type="Script" path="res://scripts/Wall.gd" id="4_lxwuf"]
-[ext_resource type="Curve2D" uid="uid://cd4flt08eejm1" path="res://Ressources/Curves/Level_03_Curve.tres" id="5_7ch70"]
 [ext_resource type="Texture2D" uid="uid://cnegffykdrncd" path="res://Sprites/LineTexture.png" id="6_g6xbx"]
-[ext_resource type="PackedScene" uid="uid://g6nj1og7u255" path="res://Scenes/miniBoost.tscn" id="7_upp1x"]
-[ext_resource type="PackedScene" uid="uid://b6eu7mmlxb1mi" path="res://Scenes/boost.tscn" id="8_lwu6y"]
-[ext_resource type="PackedScene" uid="uid://bralpdrcb3jnv" path="res://Scenes/bumper.tscn" id="9_ktkrm"]
+[ext_resource type="PackedScene" uid="uid://corq0qf430ixn" path="res://Scenes/Bullet.tscn" id="8_y44ma"]
+[ext_resource type="PackedScene" uid="uid://b0iwu6jdrplgx" path="res://Scenes/TestPath.tscn" id="9_d7dp8"]
 [ext_resource type="PackedScene" uid="uid://c1onaf1t0uxcl" path="res://Scenes/FinishLine.tscn" id="10_igssh"]
-[ext_resource type="PackedScene" uid="uid://xpkgkhxpthdb" path="res://Scenes/glassWall.tscn" id="11_88uxi"]
+
+[sub_resource type="Curve2D" id="Curve2D_rpplq"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 8, 67, 0, 0, 0, 0, 336, 70, 0, 0, 0, 0, 360, -194, 0, 0, 0, 0, -54, -182, 0, 0, 0, 0, 5, 67)
+}
+point_count = 5
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_cctwu"]
 closed = false
@@ -23,7 +26,7 @@ script = ExtResource("1_mphfx")
 level_name = "level_05"
 
 [node name="Character" parent="." instance=ExtResource("2_rpwfu")]
-position = Vector2(627, -209)
+position = Vector2(136, -63)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -41,7 +44,7 @@ build_mode = 1
 one_way_collision_margin = 20.0
 
 [node name="Path2D" type="Path2D" parent="StaticBody2D"]
-curve = ExtResource("5_7ch70")
+curve = SubResource("Curve2D_rpplq")
 
 [node name="Line2D" type="Line2D" parent="StaticBody2D"]
 texture_repeat = 2
@@ -53,144 +56,29 @@ texture_mode = 1
 occluder = SubResource("OccluderPolygon2D_cctwu")
 sdf_collision = false
 
+[node name="PolygonRoadBG" type="Polygon2D" parent="StaticBody2D"]
+z_index = -10
+color = Color(0.0901961, 0.0901961, 0.0901961, 1)
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_3lrq1")
 
 [node name="Boost1" type="Node2D" parent="."]
 position = Vector2(53, -38)
 
-[node name="MiniBoost" parent="." instance=ExtResource("7_upp1x")]
-position = Vector2(1957, -1290)
-rotation = -0.261799
-
-[node name="MiniBoost2" parent="." instance=ExtResource("7_upp1x")]
-position = Vector2(1952, -1054)
-rotation = -0.261799
-
-[node name="MiniBoost3" parent="." instance=ExtResource("7_upp1x")]
-position = Vector2(1944, -1812)
-rotation = -0.261799
-
-[node name="MiniBoost4" parent="." instance=ExtResource("7_upp1x")]
-position = Vector2(1948, -1557)
-rotation = -0.261799
-
-[node name="MiniBoost5" parent="." instance=ExtResource("7_upp1x")]
-position = Vector2(3313, -2124)
-rotation = -0.261799
-
-[node name="MiniBoost6" parent="." instance=ExtResource("7_upp1x")]
-position = Vector2(3330, -1910)
-rotation = -0.261799
-
-[node name="MiniBoost7" parent="." instance=ExtResource("7_upp1x")]
-position = Vector2(3268, -2542)
-rotation = -0.261799
-
-[node name="MiniBoost8" parent="." instance=ExtResource("7_upp1x")]
-position = Vector2(3301, -2340)
-rotation = -0.261799
-
-[node name="Boost" parent="." instance=ExtResource("8_lwu6y")]
-position = Vector2(1938, -2083)
-rotation = -0.261799
-
-[node name="Boost2" parent="." instance=ExtResource("8_lwu6y")]
-position = Vector2(3345, -1682)
-rotation = -0.261799
-
-[node name="MiniBoost9" parent="." instance=ExtResource("7_upp1x")]
-position = Vector2(7102, 2588)
-rotation = -0.261799
-
-[node name="MiniBoost10" parent="." instance=ExtResource("7_upp1x")]
-position = Vector2(7407, 2671)
-rotation = -0.261799
-
-[node name="MiniBoost11" parent="." instance=ExtResource("7_upp1x")]
-position = Vector2(6543, 2488)
-rotation = -0.261799
-
-[node name="MiniBoost12" parent="." instance=ExtResource("7_upp1x")]
-position = Vector2(6833, 2544)
-rotation = -0.261799
-
-[node name="Boost3" parent="." instance=ExtResource("8_lwu6y")]
-position = Vector2(7719, 2793)
-rotation = -0.261799
-
-[node name="Bumper9" parent="." instance=ExtResource("9_ktkrm")]
-position = Vector2(3411, 1269)
-rotation = 0.3015
-scale = Vector2(2, 1)
-
-[node name="Bumper10" parent="." instance=ExtResource("9_ktkrm")]
-position = Vector2(6382, -399)
-rotation = 0.712485
-scale = Vector2(1.5, 1)
-
 [node name="FinishLine" parent="." instance=ExtResource("10_igssh")]
 position = Vector2(22319, -2880)
 rotation = 1.52461
-
-[node name="GlassWall" parent="." instance=ExtResource("11_88uxi")]
-position = Vector2(3338, -1232)
-scale = Vector2(2, 2)
-
-[node name="GlassWall2" parent="." instance=ExtResource("11_88uxi")]
-position = Vector2(3347, -976)
-scale = Vector2(2, 2)
-
-[node name="GlassWall3" parent="." instance=ExtResource("11_88uxi")]
-position = Vector2(3345, -750)
-scale = Vector2(2, 2)
-
-[node name="GlassWall4" parent="." instance=ExtResource("11_88uxi")]
-position = Vector2(4966, 324)
-rotation = 1.03181
-scale = Vector2(2, 2)
-
-[node name="GlassWall5" parent="." instance=ExtResource("11_88uxi")]
-position = Vector2(4779, 448)
-rotation = 1.03181
-scale = Vector2(2, 2)
-
-[node name="GlassWall6" parent="." instance=ExtResource("11_88uxi")]
-position = Vector2(4581, 570)
-rotation = 1.03181
-scale = Vector2(2, 2)
-
-[node name="GlassWall10" parent="." instance=ExtResource("11_88uxi")]
-position = Vector2(8729, 500)
-rotation = -0.66627
-scale = Vector2(2, 2)
-
-[node name="GlassWall11" parent="." instance=ExtResource("11_88uxi")]
-position = Vector2(8932, 747)
-rotation = -0.66627
-scale = Vector2(2, 2)
-
-[node name="GlassWall12" parent="." instance=ExtResource("11_88uxi")]
-position = Vector2(9151, 999)
-rotation = -0.66627
-scale = Vector2(2, 2)
-
-[node name="GlassWall7" parent="." instance=ExtResource("11_88uxi")]
-position = Vector2(5847, 684)
-rotation = 0.547736
-scale = Vector2(2.5, 2.5)
-
-[node name="GlassWall8" parent="." instance=ExtResource("11_88uxi")]
-position = Vector2(5707, 884)
-rotation = 0.547736
-scale = Vector2(2.7, 2.7)
-
-[node name="GlassWall9" parent="." instance=ExtResource("11_88uxi")]
-position = Vector2(5564, 1112)
-rotation = 0.547736
-scale = Vector2(2.8, 2.8)
 
 [node name="FinishLine2" parent="." instance=ExtResource("10_igssh")]
 position = Vector2(14240, -2509)
 rotation = 0.54633
 scale = Vector2(3, 3)
+
+[node name="Bullet" parent="." instance=ExtResource("8_y44ma")]
+position = Vector2(1967, -503)
+direction = Vector2(0, 0)
+speed = 0
+
+[node name="Path2D" parent="." instance=ExtResource("9_d7dp8")]
+position = Vector2(1500, -315)

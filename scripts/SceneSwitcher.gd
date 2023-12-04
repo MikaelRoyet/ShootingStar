@@ -17,7 +17,7 @@ func _ready():
 	GameManager.inGameMenu = inGameMenu
 	
 func _process(delta):
-	if(Input.is_action_just_pressed("Pause")):
+	if Input.is_action_just_pressed("Pause"):
 		if(GameManager.isPause):
 			print("unpause")
 			GameManager.unpause()

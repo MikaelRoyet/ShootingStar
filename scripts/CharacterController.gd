@@ -136,6 +136,7 @@ func hitWall(collisionParam):
 		velocity = velocity.bounce(collisionParam.get_normal())
 		set_speed(CONST_SPEED_MULTI)
 		durationWallHitTimer.start(CONST_DURATION_WALLHIT)
+		boosterDurationTimer.stop()
 	else:
 		velocity = velocity.bounce(collision.get_normal())
 		set_speed(CONST_SPEED_SLOW)
@@ -152,6 +153,8 @@ func hitGlassWall(isBoostPlus : bool) -> int:
 		durationWallHitTimer.start(CONST_DURATION_WALLHIT)
 	elif isBoostPlus:
 		nb_boost += 1
+		GameManager.sendBoostToUI(nb_boost)
+		
 		
 	return speed
 

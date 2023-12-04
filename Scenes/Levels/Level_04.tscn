@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/Level.gd" id="1_rmcsv"]
 [ext_resource type="PackedScene" uid="uid://bvv80ibnjne10" path="res://Scenes/UI/UI.tscn" id="2_nkur6"]
 [ext_resource type="Script" path="res://scripts/Wall.gd" id="3_7f7l1"]
-[ext_resource type="Curve2D" uid="uid://cd4flt08eejm1" path="res://Ressources/Curves/Level_03_Curve.tres" id="4_jisxx"]
+[ext_resource type="Curve2D" uid="uid://dfids5n3vuc7w" path="res://Ressources/Curves/Level_04_Curve.tres" id="5_auibm"]
 [ext_resource type="Texture2D" uid="uid://cnegffykdrncd" path="res://Sprites/LineTexture.png" id="5_fwdl0"]
 [ext_resource type="PackedScene" uid="uid://g6nj1og7u255" path="res://Scenes/miniBoost.tscn" id="7_o0g1t"]
 [ext_resource type="PackedScene" uid="uid://b6eu7mmlxb1mi" path="res://Scenes/boost.tscn" id="8_v8als"]
@@ -41,7 +41,7 @@ build_mode = 1
 one_way_collision_margin = 20.0
 
 [node name="Path2D" type="Path2D" parent="StaticBody2D"]
-curve = ExtResource("4_jisxx")
+curve = ExtResource("5_auibm")
 
 [node name="Line2D" type="Line2D" parent="StaticBody2D"]
 texture_repeat = 2

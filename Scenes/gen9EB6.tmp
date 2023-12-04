@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://bfqo568tihnmc"]
+
+[ext_resource type="Script" path="res://Scripts/GeneratedLevel.gd" id="1_spjqs"]
+[ext_resource type="Script" path="res://scripts/Wall.gd" id="2_h4f1s"]
+[ext_resource type="Curve2D" uid="uid://cd4flt08eejm1" path="res://Ressources/Curves/Level_03_Curve.tres" id="3_uqwcd"]
+[ext_resource type="Texture2D" uid="uid://cnegffykdrncd" path="res://Sprites/LineTexture.png" id="4_vx41k"]
+[ext_resource type="PackedScene" uid="uid://d12e7lbi56nd6" path="res://Scenes/Character.tscn" id="5_a328x"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_61mre"]
+closed = false
+
+[node name="GeneratedLevel" type="Node2D"]
+script = ExtResource("1_spjqs")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+script = ExtResource("2_h4f1s")
+
+[node name="CollisionPoly" type="CollisionPolygon2D" parent="StaticBody2D"]
+build_mode = 1
+one_way_collision_margin = 20.0
+
+[node name="Path2D" type="Path2D" parent="StaticBody2D"]
+position = Vector2(-430, 200)
+curve = ExtResource("3_uqwcd")
+
+[node name="Line2D" type="Line2D" parent="StaticBody2D"]
+texture_repeat = 2
+width = 15.0
+texture = ExtResource("4_vx41k")
+texture_mode = 1
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="StaticBody2D"]
+occluder = SubResource("OccluderPolygon2D_61mre")
+sdf_collision = false
+
+[node name="PolygonRoadBG" type="Polygon2D" parent="StaticBody2D"]
+z_index = -10
+color = Color(0.0901961, 0.0901961, 0.0901961, 1)
+
+[node name="Character" parent="." instance=ExtResource("5_a328x")]
+position = Vector2(-188, -184)

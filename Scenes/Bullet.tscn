@@ -1,11 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://corq0qf430ixn"]
+[gd_scene load_steps=7 format=3 uid="uid://corq0qf430ixn"]
 
 [ext_resource type="Script" path="res://Scripts/Bullet.gd" id="1_fc6ep"]
 [ext_resource type="Texture2D" uid="uid://dnd73u4db6p1t" path="res://Sprites/Trail.png" id="2_jjphd"]
-[ext_resource type="Material" uid="uid://2qmyv58xwjdw" path="res://Ressources/ParticleMaterial/Particle_Bullet.tres" id="3_dmx7j"]
+[ext_resource type="Script" path="res://scripts/TrailCharacter.gd" id="3_rfmwv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hbbfb"]
-radius = 52.0
+radius = 32.0
+
+[sub_resource type="Curve" id="Curve_3i8q6"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.997512, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_cbiph"]
+offsets = PackedFloat32Array(0, 0.607242)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [node name="Bullet" type="Area2D"]
 script = ExtResource("1_fc6ep")
@@ -14,15 +22,16 @@ script = ExtResource("1_fc6ep")
 shape = SubResource("CircleShape2D_hbbfb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
 modulate = Color(1, 0.443137, 0.0823529, 1)
-position = Vector2(-1, 0)
 texture = ExtResource("2_jjphd")
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-amount = 500
-process_material = ExtResource("3_dmx7j")
-texture = ExtResource("2_jjphd")
-preprocess = 10.0
+[node name="Line2D" type="Line2D" parent="."]
+z_index = -1
+width = 32.0
+width_curve = SubResource("Curve_3i8q6")
+default_color = Color(1, 0.00392157, 0.00392157, 0.00392157)
+gradient = SubResource("Gradient_cbiph")
+script = ExtResource("3_rfmwv")
+MAX_LENGTH = 25
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
