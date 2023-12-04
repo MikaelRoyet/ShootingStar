@@ -37,6 +37,7 @@ func _process(delta):
 	
 	if(isRunning) && player != null && player.velocity != Vector2(0,0):
 		sendTimeToUI(delta)
+		
 
 
 func sendBoostToUI(boost):
@@ -68,11 +69,13 @@ func resetTimer():
 func pause():
 	print("pause")
 	inGameMenu.visible = true
+	inGameMenu.get_parent().layer = 15
 	isPause = true
 
 func unpause():
 	print("unpause")
 	inGameMenu.visible = false
+	inGameMenu.get_parent().layer = 1
 	isPause = false
 
 #Load Data

@@ -2,43 +2,15 @@
 
 [ext_resource type="Script" path="res://Scripts/SceneSwitcher.gd" id="1_8tube"]
 [ext_resource type="PackedScene" uid="uid://biy1beojexsw2" path="res://Scenes/Levels/MainMenu.tscn" id="2_tisg2"]
+[ext_resource type="Animation" uid="uid://dluteh7c778sg" path="res://Ressources/Animations/fade_in.res" id="3_4mye8"]
 [ext_resource type="PackedScene" uid="uid://b276oobua66h3" path="res://Scenes/UI/InGameMenu.tscn" id="3_xsyx2"]
 [ext_resource type="AudioStream" uid="uid://bsf0i2d6atb5i" path="res://Audio/Music/chiptunejsptrop.wav" id="4_14yoi"]
-
-[sub_resource type="Animation" id="Animation_tlvwe"]
-resource_name = "fade_in"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../CanvasLayerTransition/ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_dcoik"]
-resource_name = "fade_out"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../CanvasLayerTransition/ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
-}
+[ext_resource type="Animation" uid="uid://btavo58bvfjye" path="res://Ressources/Animations/fade_out.res" id="4_gxnu6"]
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_apcjh"]
 _data = {
-"fade_in": SubResource("Animation_tlvwe"),
-"fade_out": SubResource("Animation_dcoik")
+"fade_in": ExtResource("3_4mye8"),
+"fade_out": ExtResource("4_gxnu6")
 }
 
 [node name="SceneSwitcher" type="Node"]
@@ -62,7 +34,6 @@ color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../CanvasLayerInGameMenu")
-autoplay = "fade_out"
 libraries = {
 "": SubResource("AnimationLibrary_apcjh")
 }
