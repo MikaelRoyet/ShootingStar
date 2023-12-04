@@ -31,7 +31,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
-	if(isRunning):
+	if(isRunning) && player != null && player.velocity != Vector2(0,0):
 		sendTimeToUI(delta)
 
 
@@ -50,6 +50,14 @@ func sendTimeToUI(delta):
 func endLevel():
 	isRunning = false
 	
+	
+func startTimer():
+	time = 0
+	isRunning = true
+	
+func resetTimer():
+	time = 0
+	sendTimeToUI(time)
 	
 
 #UI functions
