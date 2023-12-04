@@ -39,6 +39,7 @@ var nb_boost = 1
 
 #Shield
 const CONST_CD_SHIELD = 5
+const CONST_CD_SHIELD_WALL_HIT = 10
 const CONST_CD_SHIELD_RESET = 0.5
 const CONST_SHIELD_DURATION = 2
 var shieldCdTimer : Timer
@@ -139,12 +140,17 @@ func hitWall(collisionParam):
 		boosterDurationTimer.stop()
 	else:
 		velocity = velocity.bounce(collision.get_normal())
-		set_speed(CONST_SPEED_SLOW)
-		durationWallHitTimer.start(CONST_DURATION_WALLHIT)
-		boosterDurationTimer.stop()
-		isOnBooster = false
-		
-		isWallHit = true
+		if is_vulnerable:
+			set_speed(CONST_SPEED_SLOW)
+			durationWallHitTimer.start(CONST_DURATION_WALLHIT)
+			boosterDurationTimer.stop()
+			isOnBooster = false
+			isWallHit = true
+		else:
+			shieldCdTimer.start(CONST_CD_SHIELD_WALL_HIT)
+			shieldDurationTimer.stop()
+			spriteCharacter.modulate = Color(255,255,255,255)
+			is_vulnerable = true
 
 func hitGlassWall(isBoostPlus : bool) -> int:
 	camera.applyShake(computeShakeStrength(), 5.0)
@@ -154,7 +160,7 @@ func hitGlassWall(isBoostPlus : bool) -> int:
 	elif isBoostPlus:
 		nb_boost += 1
 		GameManager.sendBoostToUI(nb_boost)
-		
+		shieldCdTimer.start(CONST_CD_SHIELD)
 		
 	return speed
 
