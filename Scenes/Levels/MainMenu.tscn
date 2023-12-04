@@ -56,5 +56,50 @@ offset_top = 216.0
 offset_right = 1362.0
 offset_bottom = 784.0
 
+[node name="HowToPlay" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -904.0
+offset_top = -633.0
+offset_right = -213.0
+offset_bottom = -164.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "[Left stick] to move
+[Right Trigger] to use the shield
+-> block orange bubble to gain a boost and reset the CD of shield
+-> block wallhit to not lose speed
+
+[Left Trigger] to boost
+
+[Start] to pause/unpause
+
+Avoid touching walls
+Collect the yellow (mini) and orange (big) boost to speed up
+Bumper will give you a boost
+Glass wall will give you a boost if you hit them with enough speed
+
+You can boost to recover from speedloss
+Try to get the best times to unlock levels"
+
+[node name="BottomText" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -92.0
+grow_horizontal = 2
+grow_vertical = 0
+bbcode_enabled = true
+text = "
+
+
+Game made by Aerkaos - Version Alpha 0.01"
+
 [connection signal="pressed" from="MainMenuContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="MainMenuContainer/QuitButton" to="." method="_on_quit_button_pressed"]
