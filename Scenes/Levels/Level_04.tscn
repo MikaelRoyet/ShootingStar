@@ -21,6 +21,7 @@ background_mode = 1
 [node name="Level_04" type="Node2D"]
 script = ExtResource("1_rmcsv")
 level_name = "level_04"
+nbBaseBoost = 3
 
 [node name="Character" parent="." instance=ExtResource("1_q3fgn")]
 position = Vector2(627, -209)

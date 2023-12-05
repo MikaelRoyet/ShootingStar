@@ -29,6 +29,7 @@ func _process(delta):
 	pass
 
 func majBoost(boost):
+	GameManager.isBoostDataStartSend = true
 	nbBoost = boost
 	for i in range(tabBoostUI.size()):
 		tabBoostUI[i].queue_free()

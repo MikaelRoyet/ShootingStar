@@ -14,8 +14,9 @@ var spriteCharacter
 
 
 #Speed
-var speed = CONST_SPEED
+var speed = 0
 var speedToGo = CONST_SPEED
+var realSpeed = 0
 const CONST_SPEED_INCR = 50
 const CONST_SPEED = 1000.0
 const CONST_SPEED_MULTI = 2
@@ -35,7 +36,7 @@ var isBullletHit = false
 
 #Boost
 var CONST_NB_BOOST_MAX = 5
-var nb_boost = 5
+var nb_boost = 1
 
 #Shield
 const CONST_CD_SHIELD = 5
@@ -78,7 +79,6 @@ func _ready():
 	spriteCharacter = $Sprite2D
 	camera = $Camera2D
 	spriteCharacter.modulate = Color(255,255,255,255)
-	GameManager.sendBoostToUI(nb_boost)
 	GameManager.player = self
 
 
@@ -97,14 +97,15 @@ func _process(delta):
 
 
 func _physics_process(delta):
-
-
+	
 	if(speed > speedToGo):
 		speed -= CONST_SPEED_INCR
 	elif(speed < speedToGo):
 		speed += CONST_SPEED_INCR
-	
-	GameManager.sendSpeedToUI(speed)
+		
+	if velocity != Vector2(0,0):
+		GameManager.sendSpeedToUI(speed)
+		
 	trail.set_color(speed)
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.

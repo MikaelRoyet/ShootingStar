@@ -10,7 +10,10 @@ var level
 var timeLevelStart
 var time = 0
 var isRunning = false
+
 var player
+var nbBaseBoost
+var isBoostDataStartSend : bool = false
 
 var inGameMenu
 var isPause = false
@@ -35,7 +38,11 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
-	if(isRunning) && player != null && player.velocity != Vector2(0,0):
+	if !isBoostDataStartSend && player != null:
+		sendBoostToUI(nbBaseBoost)
+		player.nb_boost = nbBaseBoost
+	
+	if isRunning && player != null && player.velocity != Vector2(0,0):
 		sendTimeToUI(delta)
 		
 
