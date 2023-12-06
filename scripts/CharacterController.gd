@@ -35,6 +35,7 @@ var isWallHit = false
 var isBullletHit = false
 
 #Boost
+const CONST_DURATION_BOOSTER = 1.5
 var CONST_NB_BOOST_MAX = 5
 var nb_boost = 1
 
@@ -89,7 +90,7 @@ func _process(delta):
 		shield()
 		
 	if(Input.is_action_just_pressed("acceleration") && isControllable):
-		if nb_boost > 0 && !isBullletHit && !isOnBooster:
+		if nb_boost > 0 && !isBullletHit:
 			nb_boost -= 1	
 			GameManager.sendBoostToUI(nb_boost)
 			booster("booster")
@@ -209,7 +210,8 @@ func hit():
 func booster(boostType):
 	match boostType:
 		"minibooster":
-			set_speed(CONST_SPEED_MULTI_MINI)
+			if speed < CONST_SPEED * CONST_SPEED_MULTI_MINI:
+				set_speed(CONST_SPEED_MULTI_MINI)
 			camera.applyShake(computeShakeStrength() / 3, 10.0)
 		"booster":
 			set_speed(CONST_SPEED_MULTI)
@@ -217,8 +219,8 @@ func booster(boostType):
 		"maxibooster":
 			set_speed(CONST_SPEED_MULTI_MAXI)
 			camera.applyShake(computeShakeStrength(), 10.0)
-		
-	boosterDurationTimer.start(CONST_DURATION_WALLHIT)
+	
+	boosterDurationTimer.start(CONST_DURATION_BOOSTER)
 	durationWallHitTimer.stop()
 	isOnBooster = true
 
@@ -252,6 +254,7 @@ func _on_duration_shield_timeout():
 
 
 func _on_duration_booster_timeout():
+	print("mais non")
 	set_speed(CONST_SPEED_NORMAL)
 	isOnBooster = false
 
