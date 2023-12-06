@@ -50,6 +50,7 @@ var is_vulnerable = true
 var cdShield = 0
 var is_onCd = false
 var particleShield
+var shaderShieldCd : Sprite2D
 
 #Booster
 const CONST_BOOSTER_DURATION = 200
@@ -76,6 +77,7 @@ func _ready():
 	durationBulletHitTimer = $DurationBulletHit
 	boosterDurationTimer = $DurationBooster
 	particleShield = $ShieldParticles
+	shaderShieldCd = $SpriteRechargeShield
 	trail = $Line2D
 	spriteCharacter = $Sprite2D
 	camera = $Camera2D
@@ -94,6 +96,7 @@ func _process(delta):
 			nb_boost -= 1	
 			GameManager.sendBoostToUI(nb_boost)
 			booster("booster")
+			
 
 
 
@@ -126,6 +129,11 @@ func _physics_process(delta):
 	if collision:
 		hitWall(collision)
 		print("I collided with ", collision.get_collider().name)
+		
+	if is_onCd:
+		var aa : ShaderMaterial = shaderShieldCd.material
+		aa.set_shader_parameter("removed_segments", (shieldCdTimer.time_left/CONST_CD_SHIELD) -0.01)
+	
 
 	
 func hitWall(collisionParam):
@@ -151,7 +159,6 @@ func hitWall(collisionParam):
 			isWallHit = true
 			GameManager.playSfx(AudioFile.sfxWallHit)
 		else:
-			shieldCdTimer.start(CONST_CD_SHIELD_WALL_HIT)
 			shieldDurationTimer.stop()
 			spriteCharacter.modulate = Color(255,255,255,255)
 			is_vulnerable = true

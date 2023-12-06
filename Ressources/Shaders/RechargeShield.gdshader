@@ -2,11 +2,11 @@ shader_type canvas_item;
 
 
 
-uniform float removed_segments:hint_range(0., 1.) = 1.;
+uniform float removed_segments:hint_range(-0.1, 1.) = 1.;
 uniform vec4 ring_color = vec4(1);
 uniform vec4 bg_color = vec4(0,0,0,0);
 uniform vec4 bg_line_color = vec4(0.5,0.5,0.5,1);
-uniform vec4 empty_cell_color = vec4(0.25,0.25,0.25,1);
+uniform vec4 empty_cell_color = vec4(0.25,0.25,0.25,0);
 uniform bool antialias = false;
 uniform float pixelFactor : hint_range(0,1) = .25;
 uniform float radius :hint_range(0, 1) = 0.7;
@@ -29,8 +29,7 @@ void fragment(){
 	}
 	
 	float angle = atan(uv.x, uv.y) + PI;
-	float segment_size = (2. * PI);
-	float segment = abs(sin(mod(angle + PI * 2. + segment_size / 2., segment_size) - segment_size / 2.)) * length(uv);
+	float segment = abs(sin(angle + PI * 2.)) * length(uv);
 	angle -= removed_segments * 2. * PI;
 	float circle = length(uv) - radius;
 	float ring = abs(circle) - line_width;
@@ -66,10 +65,7 @@ void fragment(){
 	}else{
 		if(segment >= 1. && base_ring >= 1.){
 			COLOR = bg_line_color;
-		}else if(base_ring >= 1.){
-			COLOR = empty_cell_color;
-		}else{
-			COLOR = bg_color;
+
 		}
 		COLOR.a = background;
 	}
