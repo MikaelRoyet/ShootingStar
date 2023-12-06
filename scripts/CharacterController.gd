@@ -51,6 +51,7 @@ var cdShield = 0
 var is_onCd = false
 var particleShield
 var shaderShieldCd : Sprite2D
+var particleBlockBullet
 
 #Booster
 const CONST_BOOSTER_DURATION = 200
@@ -77,6 +78,7 @@ func _ready():
 	durationBulletHitTimer = $DurationBulletHit
 	boosterDurationTimer = $DurationBooster
 	particleShield = $ShieldParticles
+	particleBlockBullet = $BlockBulletParticles
 	shaderShieldCd = $SpriteRechargeShield
 	trail = $Line2D
 	spriteCharacter = $Sprite2D
@@ -210,7 +212,7 @@ func hit():
 		GameManager.playSfx(AudioFile.sfxBulletHit)
 	else:
 		print("blocked")
-		
+		particleBlockBullet.emitting = true
 		if(nb_boost < CONST_NB_BOOST_MAX):
 			nb_boost += 1
 			GameManager.sendBoostToUI(nb_boost)
@@ -220,6 +222,8 @@ func hit():
 		set_vulnerable(false)
 		is_onCd = false
 		spriteCharacter.modulate = Color(255,255,255,255)
+		
+		shaderShieldCd.material.set_shader_parameter("removed_segments", -0.01)
 		
 		GameManager.playSfx(AudioFile.sfxBulletBlock)
 

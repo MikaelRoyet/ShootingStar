@@ -16,6 +16,12 @@
 "Level_04":	{
 	"medal": ["30000","30000","30000","30000"],
 	"name": "Fisrt contact",
-	"nextLevel": "Level_0_4",
+	"nextLevel": "Level_0_5",
+  },
+
+"Level_05":	{
+	"medal": ["30000","30000","30000","30000"],
+	"name": "Fisrt contact",
+	"nextLevel": "Level_0_6",
   }
 }
