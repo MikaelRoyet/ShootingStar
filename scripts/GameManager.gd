@@ -16,6 +16,7 @@ var nbBaseBoost
 var isBoostDataStartSend : bool = false
 
 var inGameMenu
+var endGameMenu
 var isPause = false
 
 #Data
@@ -61,6 +62,8 @@ func sendTimeToUI(delta):
 	
 func endLevel():
 	isRunning = false
+	endGameMenu.visible = true
+	endGameMenu.get_parent().layer = 15
 	
 	
 func startTimer():
@@ -84,6 +87,17 @@ func unpause():
 	inGameMenu.visible = false
 	inGameMenu.get_parent().layer = 1
 	isPause = false
+
+
+#Level change
+
+func getNextLevel():
+	return levelDataDict[level.level_name]["nextLevel"]
+
+func closeEndGameMenu():
+	endGameMenu.visible = false
+	endGameMenu.get_parent().layer = 1
+	isRunning = true
 
 #Load Data
 

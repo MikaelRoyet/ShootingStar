@@ -4,6 +4,7 @@ var current_level
 var anim
 var canvas
 var inGameMenu
+var endGameMenu
 
 var next_level = null
 
@@ -12,9 +13,12 @@ func _ready():
 	anim = $AnimationPlayer
 	canvas = $CanvasLayerTransition
 	inGameMenu = $CanvasLayerInGameMenu/InGameMenu
+	endGameMenu = $CanvasLayerEndGameMenu/EndGameMenu
 	current_level.connect("level_changed",Callable(self, "handle_level_changed"))
 	inGameMenu.visible = false
+	endGameMenu.visible = false
 	GameManager.inGameMenu = inGameMenu
+	GameManager.endGameMenu = endGameMenu
 	GameManager.musicPlayer = $MusicPlayer
 	
 	

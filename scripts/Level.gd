@@ -9,10 +9,12 @@ signal level_changed(level_name)
 func _ready():
 	GameManager.resetTimer()
 	GameManager.nbBaseBoost = nbBaseBoost
+	GameManager.level = self
 
 func emitSignalNextLevel():
 	print(level_name)
-	emit_signal("level_changed", GameManager.getNextLevel(level_name))
+	emit_signal("level_changed", GameManager.getNextLevel())
+	GameManager.closeEndGameMenu()
 	
 func emitSignalLevel():
 	print(level_name)
