@@ -16,7 +16,7 @@ func _on_resume_button_pressed():
 
 
 func _on_quit_button_pressed():
-	emit_signal("level_changed", "MainMenu")
+	GameManager.level.emitSignalMenu()
 
 
 func _on_next_level_button_pressed():

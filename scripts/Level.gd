@@ -22,4 +22,6 @@ func emitSignalLevel():
 	
 func emitSignalMenu():
 	print(level_name)
+	GameManager.closeEndGameMenu()
+	GameManager.closeInGameMenu()
 	emit_signal("level_changed", "Menu")

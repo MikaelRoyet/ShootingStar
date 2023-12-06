@@ -8,7 +8,7 @@ scroll_base_scale = Vector2(0.25, 0.25)
 script = ExtResource("1_jmka7")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
-motion_mirroring = Vector2(3000, 3000)
+motion_mirroring = Vector2(2800, 2700)
 
 [node name="BG" type="Sprite2D" parent="ParallaxLayer"]
 texture_repeat = 2

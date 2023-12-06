@@ -18,6 +18,7 @@ config/icon="res://Sprites/icon.svg"
 [autoload]
 
 GameManager="*res://Scripts/GameManager.gd"
+AudioFile="*res://Scripts/AudioFile.gd"
 
 [display]
 

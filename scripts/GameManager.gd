@@ -25,8 +25,7 @@ var levelDataDict
 
 #Audio
 var musicPlayer : AudioStreamPlayer
-var menuMusic = load("res://Audio/Music/chiptunejsptrop.wav")
-var levelMusic = load("res://Audio/Music/chiptunejsptrop.wav")
+var sfxPlayers
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -98,6 +97,11 @@ func closeEndGameMenu():
 	endGameMenu.visible = false
 	endGameMenu.get_parent().layer = 1
 	isRunning = true
+	
+func closeInGameMenu():
+	inGameMenu.visible = false
+	inGameMenu.get_parent().layer = 1
+
 
 #Load Data
 
@@ -121,12 +125,15 @@ func load_level_data():
 #Audio
 
 func changeMusicToLevel():
-	musicPlayer.stream = levelMusic
+	musicPlayer.stream = AudioFile.levelMusic
 	musicPlayer.play()
 
 func changeMusicToMenu():
-	musicPlayer.stream = menuMusic
+	musicPlayer.stream = AudioFile.menuMusic
 	musicPlayer.play()
+	
+func playSfx(audioFile):
+	sfxPlayers.playSound(audioFile)
 
 func muteMusic():
 	musicPlayer.stream_paused = true

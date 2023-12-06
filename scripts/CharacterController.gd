@@ -140,6 +140,7 @@ func hitWall(collisionParam):
 		set_speed(CONST_SPEED_MULTI)
 		durationWallHitTimer.start(CONST_DURATION_WALLHIT)
 		boosterDurationTimer.stop()
+		GameManager.playSfx(AudioFile.sfxBumperHit)
 	else:
 		velocity = velocity.bounce(collision.get_normal())
 		if is_vulnerable:
@@ -148,21 +149,25 @@ func hitWall(collisionParam):
 			boosterDurationTimer.stop()
 			isOnBooster = false
 			isWallHit = true
+			GameManager.playSfx(AudioFile.sfxWallHit)
 		else:
 			shieldCdTimer.start(CONST_CD_SHIELD_WALL_HIT)
 			shieldDurationTimer.stop()
 			spriteCharacter.modulate = Color(255,255,255,255)
 			is_vulnerable = true
+			GameManager.playSfx(AudioFile.sfxWallHit)
 
 func hitGlassWall(isBoostPlus : bool) -> int:
 	camera.applyShake(computeShakeStrength(), 5.0)
 	if(speed < 1200 ):
 		set_speed(CONST_SPEED_SLOW)
 		durationWallHitTimer.start(CONST_DURATION_WALLHIT)
+		GameManager.playSfx(AudioFile.sfxGlassWallSlow)
 	elif isBoostPlus:
 		nb_boost += 1
 		GameManager.sendBoostToUI(nb_boost)
 		shieldCdTimer.start(CONST_CD_SHIELD)
+		GameManager.playSfx(AudioFile.sfxGlassWallFast)
 		
 	return speed
 
@@ -182,6 +187,8 @@ func shield():
 		shieldDurationTimer.start(CONST_SHIELD_DURATION)
 		spriteCharacter.modulate = Color(150,0,0,255)
 		is_onCd = true
+		
+		GameManager.playSfx(AudioFile.sfxShieldActivation)
 	
 func set_vulnerable(status):
 	is_vulnerable = status
@@ -194,6 +201,7 @@ func hit():
 		boosterDurationTimer.stop()
 		isOnBooster = false
 		isBullletHit = true
+		GameManager.playSfx(AudioFile.sfxBulletHit)
 	else:
 		print("blocked")
 		
@@ -206,6 +214,8 @@ func hit():
 		set_vulnerable(false)
 		is_onCd = false
 		spriteCharacter.modulate = Color(255,255,255,255)
+		
+		GameManager.playSfx(AudioFile.sfxBulletBlock)
 
 func booster(boostType):
 	match boostType:
@@ -213,9 +223,11 @@ func booster(boostType):
 			if speed < CONST_SPEED * CONST_SPEED_MULTI_MINI:
 				set_speed(CONST_SPEED_MULTI_MINI)
 			camera.applyShake(computeShakeStrength() / 3, 10.0)
+			GameManager.playSfx(AudioFile.sfxMiniBoost)
 		"booster":
 			set_speed(CONST_SPEED_MULTI)
 			camera.applyShake(computeShakeStrength() / 2, 10.0)
+			GameManager.playSfx(AudioFile.sfxBoost)
 		"maxibooster":
 			set_speed(CONST_SPEED_MULTI_MAXI)
 			camera.applyShake(computeShakeStrength(), 10.0)
@@ -223,6 +235,7 @@ func booster(boostType):
 	boosterDurationTimer.start(CONST_DURATION_BOOSTER)
 	durationWallHitTimer.stop()
 	isOnBooster = true
+	
 
 
 func computeShakeStrength() -> int:
@@ -232,9 +245,11 @@ func computeShakeStrength() -> int:
 func finishLevel():
 	isControllable = false
 	speedToGo = 0
+	GameManager.playSfx(AudioFile.sfxFinishLine)
 
 func _on_shield_cd_timeout():
 	is_onCd = false
+	GameManager.playSfx(AudioFile.sfxShieldCdOk)
 
 
 func _on_duration_wall_hit_timeout():
@@ -251,6 +266,7 @@ func _on_duration_bullet_hit_timeout():
 func _on_duration_shield_timeout():
 	set_vulnerable(true)
 	spriteCharacter.modulate = Color(255,255,255,255)
+	GameManager.playSfx(AudioFile.sfxShieldFade)
 
 
 func _on_duration_booster_timeout():

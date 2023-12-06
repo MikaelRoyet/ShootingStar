@@ -20,6 +20,7 @@ func _ready():
 	GameManager.inGameMenu = inGameMenu
 	GameManager.endGameMenu = endGameMenu
 	GameManager.musicPlayer = $MusicPlayer
+	GameManager.sfxPlayers = $sfxPlayers
 	
 	
 func _process(delta):

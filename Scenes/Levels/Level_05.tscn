@@ -68,3 +68,11 @@ scale = Vector2(3, 3)
 [node name="Bullet" parent="." instance=ExtResource("8_y44ma")]
 position = Vector2(1372, -219)
 direction = Vector2(0, 0)
+
+[node name="Bullet2" parent="." instance=ExtResource("8_y44ma")]
+position = Vector2(1937, -885)
+direction = Vector2(0, 0)
+
+[node name="Bullet3" parent="." instance=ExtResource("8_y44ma")]
+position = Vector2(1917, -2264)
+direction = Vector2(0, 0)
