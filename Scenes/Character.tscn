@@ -59,7 +59,6 @@ texture = ExtResource("2_2hgxc")
 region_rect = Rect2(0, 0, 129, 125.5)
 
 [node name="SpriteRechargeShield" type="Sprite2D" parent="."]
-modulate = Color(1, 0, 0, 1)
 material = ExtResource("4_c5jgc")
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("3_hcot6")
@@ -100,7 +99,7 @@ trail_lifetime = 1.35
 
 [node name="Line2D" type="Line2D" parent="."]
 z_index = -1
-width = 32.0
+width = 35.0
 width_curve = SubResource("Curve_tso4a")
 default_color = Color(1, 0.00392157, 0.00392157, 0.00392157)
 gradient = SubResource("Gradient_pq7qk")

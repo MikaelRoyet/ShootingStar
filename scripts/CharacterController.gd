@@ -131,8 +131,7 @@ func _physics_process(delta):
 		print("I collided with ", collision.get_collider().name)
 		
 	if is_onCd:
-		var aa : ShaderMaterial = shaderShieldCd.material
-		aa.set_shader_parameter("removed_segments", (shieldCdTimer.time_left/CONST_CD_SHIELD) -0.01)
+		shaderShieldCd.material.set_shader_parameter("removed_segments", (shieldCdTimer.time_left/CONST_CD_SHIELD) -0.01)
 	
 
 	
