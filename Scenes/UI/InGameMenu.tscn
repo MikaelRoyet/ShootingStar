@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b276oobua66h3"]
+[gd_scene load_steps=3 format=3 uid="uid://b276oobua66h3"]
 
 [ext_resource type="Script" path="res://Scripts/InGameMenu.gd" id="1_kpgc2"]
+[ext_resource type="PackedScene" uid="uid://bj1ht78rl287n" path="res://Scenes/UI/OptionsMenu.tscn" id="2_p3ssj"]
 
 [node name="InGameMenu" type="Control"]
 layout_mode = 3
@@ -58,6 +59,12 @@ offset_bottom = 80.0
 grow_horizontal = 2
 bbcode_enabled = true
 text = "[center]Level[/center]"
+
+[node name="Options" parent="Panel" instance=ExtResource("2_p3ssj")]
+offset_left = 125.0
+offset_top = 79.0
+offset_right = 396.0
+offset_bottom = 370.0
 
 [connection signal="pressed" from="Panel/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="Panel/QuitButton" to="." method="_on_quit_button_pressed"]

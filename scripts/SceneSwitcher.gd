@@ -5,6 +5,8 @@ var anim
 var canvas
 var inGameMenu
 var endGameMenu
+@onready var optionsMenu = $MainMenu/Options
+@onready var optionsMenuInGame = $CanvasLayerInGameMenu/InGameMenu/Panel/Options
 
 var next_level = null
 
@@ -14,7 +16,13 @@ func _ready():
 	canvas = $CanvasLayerTransition
 	inGameMenu = $CanvasLayerInGameMenu/InGameMenu
 	endGameMenu = $CanvasLayerEndGameMenu/EndGameMenu
+
 	current_level.connect("level_changed",Callable(self, "handle_level_changed"))
+	optionsMenu.connect("signal_music",Callable(self, "modify_music"))
+	optionsMenu.connect("signal_sfx",Callable(self, "modify_all_sfx"))
+	optionsMenuInGame.connect("signal_music",Callable(self, "modify_music"))
+	optionsMenuInGame.connect("signal_sfx",Callable(self, "modify_all_sfx"))
+	
 	inGameMenu.visible = false
 	endGameMenu.visible = false
 	GameManager.inGameMenu = inGameMenu
@@ -49,7 +57,13 @@ func handle_level_changed(level_name_to_load: String):
 	anim.play("fade_in")
 
 
+func modify_music(value):
+	GameManager.musicPlayer.volume_db = (value)
+	print("RECEIVE_SIGNAL")
+	print(value)
 
+func modify_all_sfx(value):
+	GameManager.sfxPlayers.modifySound(value)
 
 func _on_animation_player_animation_finished(anim_name):
 	match anim_name:

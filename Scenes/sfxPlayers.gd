@@ -29,3 +29,8 @@ func playSound(audioFile):
 		audioStreamPlayers[next].play()
 		next += 1
 		next %= audioStreamPlayers.size()
+
+func modifySound(value):
+	for asp in audioStreamPlayers:
+		asp.volume_db = (value)
+		
