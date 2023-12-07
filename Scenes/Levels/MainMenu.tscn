@@ -26,13 +26,19 @@ theme_override_font_sizes/font_size = 50
 text = "Play
 "
 
+[node name="OptionsButton" type="Button" parent="MainMenuContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Options
+"
+
 [node name="QuitButton" type="Button" parent="MainMenuContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "Quit
 "
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="Title" type="RichTextLabel" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -49,24 +55,46 @@ text = "[center]Shooting Stars[/center]
 
 "
 
-[node name="GridLevel" type="GridContainer" parent="."]
-layout_mode = 0
-offset_left = 622.0
-offset_top = 216.0
-offset_right = 1362.0
-offset_bottom = 784.0
-
-[node name="HowToPlay" type="Label" parent="."]
+[node name="BottomText" type="RichTextLabel" parent="."]
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
+anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -904.0
-offset_top = -633.0
-offset_right = -213.0
-offset_bottom = -164.0
+offset_top = -92.0
+grow_horizontal = 2
+grow_vertical = 0
+bbcode_enabled = true
+text = "
+
+
+Game made by Aerkaos - Version Alpha 0.01"
+
+[node name="Levels" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 611.0
+offset_top = 195.0
+offset_right = 1448.0
+offset_bottom = 777.0
+
+[node name="GridLevel" type="GridContainer" parent="Levels"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 21.0
+offset_right = 282.0
+offset_bottom = 589.0
+
+[node name="HowToPlay" type="Label" parent="Levels"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.176
+anchor_top = 1.204
+anchor_right = 1.176
+anchor_bottom = 1.204
+offset_left = -668.312
+offset_top = -665.728
+offset_right = -163.312
+offset_bottom = -249.728
 grow_horizontal = 0
 grow_vertical = 0
 text = "[Left stick] to move
@@ -86,20 +114,14 @@ Glass wall will give you a boost if you hit them with enough speed
 You can boost to recover from speedloss
 Try to get the best times to unlock levels"
 
-[node name="BottomText" type="RichTextLabel" parent="."]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -92.0
-grow_horizontal = 2
-grow_vertical = 0
-bbcode_enabled = true
-text = "
-
-
-Game made by Aerkaos - Version Alpha 0.01"
+[node name="Options" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_left = 611.0
+offset_top = 195.0
+offset_right = 1448.0
+offset_bottom = 777.0
 
 [connection signal="pressed" from="MainMenuContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="MainMenuContainer/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="MainMenuContainer/QuitButton" to="." method="_on_quit_button_pressed"]
